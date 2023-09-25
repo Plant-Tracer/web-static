@@ -1,0 +1,45 @@
+@media only screen and (max-width: 600px){
+    h2 {
+        display: flex;
+        flex-direction: column;
+        font-family: futura !important;
+        text-align: center !important;
+        font-size: 1.5em !important;
+        font-weight: bold !important;
+    }
+    
+    h2 a{
+        text-decoration: none !important;
+        margin-top: 6% !important;
+        color: #117d0a !important;
+    }
+    
+    h2 a:hover {
+        text-shadow: 1px 1px 3px #9dff2e;
+    }
+
+    .active {
+        text-shadow: 2px 2px 5px #9dff2e; 
+    }
+    
+    #literacyHeading {
+        padding-top: 15% !important;
+        width: 75% !important;
+        margin: auto !important;
+        color: #2da633 !important;
+        text-align: center !important;
+        font-family: futura !important;
+        font-weight: bold !important;
+        font-size: 2em !important;
+    }
+
+    #message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 80%;
+       left: 10%;
+       top: 15%;
+       z-index: 999;
+}
+
+}    

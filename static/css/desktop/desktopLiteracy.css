@@ -1,0 +1,68 @@
+@media only screen and (min-width: 601px){
+    /* CSS for Plant Literacy*/
+    
+    h1 {
+        font-family: futura !important;
+        text-align: center !important;
+        color: #2da633 !important;
+        margin-top: 2% !important;
+        font-weight: bold !important;
+        font-size: 2em !important;
+}
+    
+    h2 {
+        display: flex;
+        flex-direction: column;
+        font-family: futura !important;
+        text-align: center !important;
+        margin-bottom: 1% !important;
+        font-weight: bold !important;
+        font-size: 1.2em !important;
+    }
+    
+    h2 a{
+        text-decoration: none !important;
+        margin-top: 1.5% !important;
+        color: #117d0a !important;
+    }
+    
+    h2 a:hover {
+        text-shadow: 1px 1px 3px #9dff2e;
+    }
+    
+    .Mobile {
+        display: none;
+    }
+
+/* CSS for Error Popup */
+    #message{
+     background-color: #ff7270;
+     position: absolute;
+     width: 60%;
+     left: 20%;
+     top: 15%;
+     z-index: 999;
+    }
+
+/* CSS for Login Modal */
+.avatar {
+  width: 40%;
+  padding-top: 1%;
+  margin-left: 30%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+  }
+
+.loginLabel{
+    align-items: center;
+    justify-content: center;
+  }
+
+.loginBtn{
+        padding-top: 15px;
+}
+}
+

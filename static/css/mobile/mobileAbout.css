@@ -1,0 +1,56 @@
+@media only screen and (max-width: 600px){
+
+h3{
+	text-align: center !important;
+	font-family: futura !important;
+	justify-content: center !important;
+  
+	margin-right: 10vw !important;
+	margin-left: 10vw !important;
+
+	margin-top: 5vw !important;
+	color: #117d0a !important;
+  font-size:16px !important;
+}
+
+.about{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  height: 500px;
+  overflow: scroll !important;
+}
+
+#downloadBtn:hover,
+#downloadBtn:focus{
+     cursor: pointer;
+   }
+
+.active {
+        text-shadow: 2px 2px 5px #9dff2e !important; 
+    }
+   
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #e6e4e2;
+   color: white;
+   text-align: center;
+}
+
+.footer p {
+	color: black;
+}
+
+#message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 80%;
+       left: 10%;
+       top: 15%;
+       z-index: 999;
+}
+
+}

@@ -1,0 +1,236 @@
+@media only screen and (min-width: 601px){
+     /* CSS for usingPlantTracer.html */
+    
+    @font-face {
+        font-family: futura;
+        src: url(css/Futura-Medium.woff);
+    }
+    
+    .Mobile{
+        display: none;
+    }
+    
+    h1{
+        font-family: "futura" !important;
+        text-align: center;
+        color: #2da633 !important;
+        margin-top: 3% !important;
+        font-size: 2em !important;
+        font-weight: bold !important;
+
+}
+    
+    .bigSubStep {
+        display: flex;
+    }
+
+    /* CSS FOR STEP 3 */
+
+    .stepContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stepRow{
+        display: flex;
+    }
+
+    .oneStep{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slideImg3{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bubble{
+        width: 3vw;
+    }
+
+    /* END OF CSS FOR STEP 3 */
+    
+    .bigSubStep p {
+        font-family: "futura" !important;
+        width: 100% !important;
+        padding: 20px !important;
+        text-align: center !important;
+    }
+
+    .downloadApp:hover,
+    .downloadApp:focus{
+        cursor: pointer;
+    }
+
+    .downloadLapse:hover,
+    .downloadLapse:focus{
+        cursor: pointer;
+    }
+
+    .instruction{
+        color: #606061;
+    }
+    
+    #bottle {
+        width: 100%;
+    }
+    
+    #subStepOne {
+        margin-left: 5%;
+        padding-bottom: 3%;
+    }
+    
+    #subStepTwo {
+        margin-left: 5%;
+        padding-bottom: 3%;
+    }
+    
+    #subStepThree {
+        margin-right: 5%;
+        padding-top: 1%;
+    }
+    
+    #potter {
+        width: 90%;
+    }
+
+    .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #bigPlant {
+        width: 80%;
+        margin-top: 18.88px;
+    }
+    
+    .substepBubble1 {
+        width: 20%;
+        display: block;
+    }
+
+    .substepBubble2 {
+        width: 18%;
+        display: block;
+    }
+
+    #substepBubble3 {
+        width: 13%;
+        display: block;
+    }
+    
+    .subStepBubble {
+        width: 10%;
+    }
+    
+    #bubbleOne {
+        padding-top: 2%;
+    }
+    
+    #greenBubbles {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #greenBubblesImg {
+        width: 600px;
+        padding-bottom: 30px;
+        padding-top: 15px;
+    }
+    
+    .nextStep{
+        margin-right: 5%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .nextBtn{
+        width: 150px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .backStep{
+        margin-left: 5%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backBtn{
+        width: 150px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    #PTPhone {
+        width: 50%;
+        height: 60%;
+    }
+
+    #lapseItPhone {
+        width: 50%;
+        height: 60%;
+    }
+    
+    .slideImg {
+        width: 70vw;
+        height: 50%;
+        display: block;
+        margin: auto;
+    }
+    
+    .slideImg4 {
+        width: 63vw;
+        height: 43%;
+        display: block;
+        margin: auto;
+    }
+    
+    .slideImg5 {
+        width: 70vw;
+        height: 75%;
+        display: block;
+        margin: auto;
+    }
+    
+    .slideImg8 {
+        width: 62vw;
+        height: 45%;
+    }
+
+    /* CSS for Error Popup */
+    #message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 60%;
+       left: 20%;
+       top: 15%;
+       z-index: 999;
+}
+
+/* CSS for Login Modal */
+.avatar {
+  width: 40%;
+  padding-top: 1%;
+  margin-left: 30%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+  }
+
+.loginLabel{
+    align-items: center;
+    justify-content: center;
+  }
+
+.loginBtn{
+        padding-top: 15px;
+}
+}

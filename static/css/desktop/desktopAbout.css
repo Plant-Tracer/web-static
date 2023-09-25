@@ -1,0 +1,70 @@
+@media only screen and (min-width: 601px){
+
+h3{
+  
+	text-align: center !important;
+	font-family: futura !important;
+	justify-content: center !important;
+	margin-right: 20vw !important;
+	margin-left: 20vw !important;
+	margin-top: 5vw !important;
+	color: #117d0a !important;
+	font-size: 1.17em !important;
+  line-height: 1.4 !important;
+}
+    
+.active {
+        text-shadow: 2px 2px 5px #9dff2e; 
+    }
+
+#downloadBtn:hover,
+#downloadBtn:focus{
+     cursor: pointer;
+   }
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #e6e4e2;
+   color: white;
+   text-align: center;
+}
+
+.footer p {
+	color: black;
+}
+
+/* CSS for Error Popup */
+#message{
+   background-color: #ff7270;
+   position: absolute;
+   width: 60%;
+   left: 20%;
+   top: 15%;
+   z-index: 999;
+}
+
+.avatar {
+  width: 40%;
+  padding-top: 1%;
+  margin-left: 30%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+  }
+
+.loginLabel{
+    align-items: center;
+    justify-content: center;
+  }
+
+.loginBtn{
+        padding-top: 15px;
+    }
+
+}
+

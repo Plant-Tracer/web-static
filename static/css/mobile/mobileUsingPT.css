@@ -1,0 +1,174 @@
+@media only screen and (max-width: 600px){
+    .desktop {
+        display: none;
+    }
+    
+    #mobileHeading {
+        font-family: "futura";
+        text-align: center;
+        margin-top: 8%;
+        color: #2da633;
+    }
+    
+    #bottle {
+        display: block;
+        margin: auto;
+        padding: 30px;
+        height: 300px;
+        width: 300px;
+    }
+    
+    .mobileStep {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mobileImg6{
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    
+    #substepBubble1 {
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    
+    .substepBubble{
+        display: block;
+        margin: auto;
+        width: 20%;
+        margin-bottom: 20px;
+        margin-top: 5%;
+    }
+    
+    .description {
+        font-family: Futura;
+        color: black;
+        width: 80%;
+        margin-top: 30px;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+    
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+      
+    .backBtn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nextBtn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    #mobileBubbles {
+        margin: auto;
+        width: 80%;
+        /*
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        */
+    }
+
+    #mobileBubblesImg {
+        width: 100%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
+    
+    #potterPlant {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    
+    #potter {
+        width: 80%;
+        height: 80%;
+        padding-top: 30px;
+        margin-left: 12%;
+    }
+    
+    #plant {
+        width: 80%;
+        height: 80%;
+        padding-top: 30px;
+    }
+    
+    #bigPlant {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    
+    .PTPhones{
+        display: block;
+        margin: auto;
+        height: 50%;
+    }
+    
+    #step2Bubble1{
+        margin-top: 3%;
+    }
+    
+    .mobileImg {
+        display: block;
+        margin: auto;
+        width: 70%; 
+        padding-top: 10%;
+    }
+    
+    .mobileImg4 {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+    
+    #example{
+        color: #2da633;
+    }
+    
+    .vs{
+        width: 10%;
+        display: block;
+        margin: auto;
+    }
+    
+    #Step3Img4{
+        width: 50%;
+    }
+    
+    h2 {
+        display: flex;
+        flex-direction: column;
+        font-family: "futura";
+        text-align: center;
+    }
+    
+    .unbold{
+        font-weight: normal;
+    }
+
+ #message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 80%;
+       left: 10%;
+       top: 15%;
+       z-index: 999;
+}
+
+}

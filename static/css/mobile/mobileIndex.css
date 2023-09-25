@@ -1,0 +1,134 @@
+@media only screen and (max-width: 600px){
+
+    #homePlant {
+        display: none;
+    }
+    
+    #login {
+        display: none;
+    }
+    
+    #newUser {
+        display: none;
+    }
+
+    #nsf{
+        width: 20%;
+        display: block;
+        margin: auto;
+        margin-top: 70px;
+    }
+    
+    #homeLogo {
+        width: 80%;
+        display: block;
+        margin: auto;
+        margin-top: 40px;
+}
+
+    #description {
+        font-family: Futura;
+        font-weight: bold;
+        color: #2da633;
+        width: 80%;
+        margin-left: 13%;
+        display: block;
+    }
+
+    .optionBtn {
+        background-color: transparent;
+        color: #2da633;
+        border-radius: 8px;
+        border-color: #2da633;
+        display: block;
+        margin: auto;
+        width: 160px;
+        height: 35px;
+        margin-top: 10px;
+        font-weight: bold;
+        font: Futura;
+    }
+    
+    #newUser {
+        display: none;
+    }
+
+
+    #seedOrder {
+        text-decoration: none;
+        color: #2da633;
+    }
+    #downloadApple{
+        margin-top: 15px;
+        height: 40%;
+        width: 45%;
+    }
+    
+    #matLab{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #matLabImg{
+        margin-top: 10px;
+        width: 50%;
+    }
+    
+    #downloadIcons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*
+    #downloadBtn {
+        background-color: #2da633;
+        color: white;
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+        width: 42%;
+        height: 60px;
+        font-family: Futura;
+    }
+    */
+
+    /* CSS for Login Modal */
+
+    .modal-backdrop.in {
+        background: rgba(0, 0, 0, 0.5);
+    }  
+
+    .avatar {
+      width: 40%;
+      padding-top: 1%;
+      margin-left: 30%;
+    }
+
+    .login{
+        display: flex;
+        flex-direction: column;
+      }
+
+    .loginLabel{
+        align-items: center;
+        justify-content: center;
+      }
+
+    .loginBtn{
+        padding-top: 15px;
+    }
+
+    #message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 80%;
+       left: 10%;
+       top: 15%;
+       z-index: 999;
+}
+
+    
+}

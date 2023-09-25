@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>About</title>
+
+	 <link rel="stylesheet" type = "text/css" href="css/desktop/desktopNavBar.css">
+	 <link rel="stylesheet" type = "text/css" href="css/mobile/mobileNavBar.css">
+	 <link rel="stylesheet" type = "text/css" href="css/desktop/desktopAbout.css">
+   <link rel="stylesheet" type = "text/css" href="css/mobile/mobileAbout.css">
+
+<!-- Bootstrap -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
+</head>
+<body>
+
+	<span class="toggle-button">
+     <div class="menu-bar menu-bar-top"></div>
+     <div class="menu-bar menu-bar-middle"></div>
+     <div class="menu-bar menu-bar-bottom"></div>
+</span>
+
+<div class="menu-wrap">
+    <div class="menu-sidebar">
+        <ul class="menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="usingplanttracer">Using Plant Tracer</a></li>
+	    <!--            <li><a href="database">Database</a></li> -->
+            <!--<li><a href="forums.html">Forums</a></li>
+-->
+            <li><a href="plantliteracy">Plant Literacy</a></li>
+            <li><a href="about">About</a></li>
+
+            <li><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></li>
+
+	    <!--            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#"><span class="navLogin">Login</span></a></li> -->
+
+        </ul>           
+    </div>
+</div>
+
+<div class="navBar">
+    <div id="homeBtn"><p id="homeLogoBtn"><a href="index">Plant Tracer</a></p></div>
+    <div id="notHomeBtns">
+        <div class="navItem">
+<a href="usingplanttracer">Using Plant Tracer</a></div>
+	<!--        <div class="line" id="firstLine"><p id="firstLine">|</p></div> -->
+
+	<!--        <div class="navItem"><a href="database">Database</a></div> -->
+<!--    <div class="navItem"><a id="forums" href="forums.html">Forums</a></div> -->
+        <div class="line"><p>|</p></div>
+        <div class="navItem" id="plantLiteracy"><a href="plantliteracy">Plant Literacy</a></div>
+        <div class="line"><p>|</p></div>
+        <div class="navItem" id="about"><a href="about">About</a></div>
+    </div>
+    
+    <div id="userBtns">
+        <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
+	<!--        <div id="navLoginBtn"><button type="button" class="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#"></a></div> -->
+    </div>
+</div>
+	  <!-- Login Modal -->
+<div class="container">
+    <form class="modal-content-newUser animate" method="post" action="index" id="form">
+        <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="loginModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="alert alert-danger" style="display:none"></div>
+      <div class="modal-header">
+        
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="labels login">
+
+            <div class="loginLabel">
+              <img class="avatar" src="img/leaf.png">
+            </div>
+
+            <div class="loginLabel">
+              <label for="Email"><strong>Email:</strong></label>
+              <input type="text" class="form-control" name="email" id="email">
+            </div>
+
+            <div class="loginLabel">
+              <label for="Password"><strong>Password:</strong></label>
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
+  
+            <div class="loginLabel loginBtn">
+              <button type="submit" class="btn btn-success">Login</button>
+            </div>
+        
+        </div>
+      </div>
+      <div class="modal-footer" style="background-color:#f1f1f1">
+        <a href="forgotpassword">Forgot password?</a>
+        </div>
+    </div>
+  </div>
+</div>
+  </form>
+</div>
+<div class="about">
+	<h3>
+
+	<strong><span id="downloadBtn">”Plant Tracer”</span> is a new App designed to enable the analysis of plant movement from time-lapse movies. Use Plant Tracer as part of a crowd-sourced method to search for novel mutant plants that do not move properly. This will  help the scientific community identify new genes involved in plant movement and  help reveal the genetic signals regulating plant movement.
+  <p></p>
+	<p>
+	Little is known about plant movement.  More is known about gravitropism, the response of plants to gravity.  Less is known about circumnutation, the continuous waving motion in plant parts (leaves, flowers, shoots)  that was described by Charles Darwin over 100 years ago. Identification of mutant Arabidopsis (the genetic model plant) lines that are abnormal in plant movement sets the stage to understand the mechanics of plant movement.
+	</p></strong>
+
+	</h3>
+</div>
+
+
+  <div class="footer">
+    <p><strong>Eric Brenner</strong> - PI and PlantTracer project head
+    <strong>Al Olsen</strong> - Lead Developer
+    <strong>Yao Wang</strong> - Video Analysis Algorithm supervision
+    <strong>Yixiang</strong> - Video Analysis Algorithm
+    <strong>Jan L. Plass</strong> - UI/UX Supervison
+    <strong>Keisha Milsom</strong> - Lead UI/UX Design
+    <strong>Javiera Valle</strong> - Graphics Design
+    <strong>Jean Jeon</strong> - Web Developer
+    <strong>Jonathan Prosperi</strong> - Design coordinator</p>
+  </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+               crossorigin="anonymous">
+      </script>
+      <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+
+            $(document).ready(function() {
+              $(".navBar a").each(function() {
+              if (this.href == window.location.href) {
+                  $(this).addClass("active");
+              }
+          });
+    });
+            $(document).ready(function(){
+            $(".menu-wrap a").each(function() {
+                if(this.href == window.location.href) {
+                    $(this).addClass("active");
+                }
+            })
+        });
+
+        $(document).ready(function() {
+            var $toggleButton = $('.toggle-button');
+            var $menuWrap = $('.menu-wrap');
+        
+            $toggleButton.on('click', function() {
+                    $(this).toggleClass('button-open');
+                    $menuWrap.toggleClass('menu-show');
+                });
+            });
+
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+              $(".navLogin").text("Logout");
+              $(".navLogin").on('click',function(e){
+                  e.stopPropagation();
+                  window.location.href="/logout";
+                });
+            }
+        });
+
+	    //Redirect to App store when downloadbtn is clicked
+        $(document).ready(function (){
+          $("#downloadBtn").on("click", function(){
+            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+
+            if(mac){
+             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+     }
+          else{
+             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+     }
+          });
+      });
+
+</script>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Using Plant Tracer
+    </title>
+
+<!-- Style -->
+    <link rel="stylesheet" type = "text/css" href="css/mobile/mobileNavBar.css">
+    <link rel="stylesheet" type = "text/css" href="css/mobile/mobileUsingPT.css">
+    <link rel="stylesheet" type = "text/css" href="css/desktop/desktopNavBar.css">
+    <link rel="stylesheet" type = "text/css" href="css/desktop/desktopUsingPT.css">
+
+<!-- Boostrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
+
+</head>
+
+<body>
+
+    <span class="toggle-button">
+     <div class="menu-bar menu-bar-top"></div>
+     <div class="menu-bar menu-bar-middle"></div>
+     <div class="menu-bar menu-bar-bottom"></div>
+</span>
+
+<div class="menu-wrap">
+    <div class="menu-sidebar">
+        <ul class="menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="usingplanttracer">Using Plant Tracer</a></li>
+	    <!--            <li><a href="database">Database</a></li> -->
+            <!--<li><a href="forums.html">Forums</a></li>
+-->
+            <li><a href="plantliteracy">Plant Literacy</a></li>
+            <li><a href="about">About</a></li>
+
+            <li><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></li>
+
+	    <!--            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#"><span class="navLogin">Login</span></a></li> -->
+
+        </ul>           
+    </div>
+</div>
+
+<div class="navBar">
+    <div id="homeBtn"><p id="homeLogoBtn"><a href="index">Plant Tracer</a></p></div>
+    <div id="notHomeBtns">
+        <div class="navItem">
+<a href="usingplanttracer">Using Plant Tracer</a></div>
+<!--        <div class="line" id="firstLine"><p id="firstLine">|</p></div>
+
+	<div class="navItem"><a href="database">Database</a></div> -->
+<!--    <div class="navItem"><a id="forums" href="forums.html">Forums</a></div> -->
+        <div class="line"><p>|</p></div>
+        <div class="navItem" id="plantLiteracy"><a href="plantliteracy">Plant Literacy</a></div>
+        <div class="line"><p>|</p></div>
+        <div class="navItem" id="about"><a href="about">About</a></div>
+    </div>
+    
+    <div id="userBtns">
+        <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
+	<!--        <div id="navLoginBtn"><button type="button" class="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#"></a></div> -->
+    </div>
+</div>
+        <!-- Login Modal -->
+<div class="container">
+    <form class="modal-content-newUser animate" method="post" action="index" id="form">
+        <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="loginModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="alert alert-danger" style="display:none"></div>
+      <div class="modal-header">
+        
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="labels login">
+
+            <div class="loginLabel">
+              <img class="avatar" src="img/leaf.png">
+            </div>
+
+            <div class="loginLabel">
+              <label for="Email"><strong>Email:</strong></label>
+              <input type="text" class="form-control" name="email" id="email">
+            </div>
+
+            <div class="loginLabel">
+              <label for="Password"><strong>Password:</strong></label>
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
+  
+            <div class="loginLabel loginBtn">
+              <button type="submit" class="btn btn-success">Login</button>
+            </div>
+        
+        </div>
+      </div>
+      <div class="modal-footer" style="background-color:#f1f1f1">
+        <a href="forgotpassword">Forgot password?</a>
+        </div>
+    </div>
+  </div>
+</div>
+  </form>
+</div>
+    
+<div class = "desktop">
+<h1>Step 1. Grow your specimens</h1>
+
+    <div class="bigSubStep">
+     <!--<div class="step back1"><img id="backBtn1" class="backBtn" src="Imgs/Back%20Button.png"></div>-->
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <div id="subStepOne" class="step">
+            <img id="bottle" src="img/Step%201/bottle.png">
+            <img class="substepBubble1" src="img/Substep%20Bubble%201.png">
+            <p class="instruction"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="https://abrc.osu.edu/educators/growing">create your own lighting</a></u> or <u><a href="https://www.carolina.com/growth-and-light-carts/plant-growth-cart/199716.pr?question=plant+growth+cart" target="_blank">purchase a lighting arrangement</a>.</u></p>
+        </div>
+        <div id="subStepTwo" class="step">
+            <img id="potter" src="img/Step%201/potter.png">
+            <img class="substepBubble2" src="img/Substep%20Bubble%202.png">
+            <p class="instruction">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="https://abrc.osu.edu/seed-handling" target="_blank">HERE</a></u>.</p>
+        </div>
+        <div id="subStepThree" class="step">
+            <img id="bigPlant" src="img/Step%201/bigPlant.png">
+            <img id="substepBubble3" src="img/Substep%20Bubble%203.png">
+            <p class="instruction">Over time, thin seeds to one individual plant per pot using a forcep (tweezers). When your plant begins to flower for the first time, you are ready to begin running the experiment. If you are not ready to perform the experiment you can cut off the floweing stem and new ones will emerge.</p>
+        </div>
+
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        
+        <div id="subStep23" class="step">
+            <img id="lapseItPhone" src="img/Step%202/lapseItPhone.png">
+            <img class="subStepBubble" src="img/Substep%20Bubble%201.png">
+            <p class="instruction">Download Lapse It from the <u class="downloadLapse">App Store.</u></p>
+        </div>
+        
+        <div id="subStep21" class="step">
+            <img id="PTPhone" src="img/Step%202/PTPhone.png">
+            <img class="subStepBubble" id="bubbleOne" src="img/Substep%20Bubble%202.png">
+            <p class="instruction">Download Plant Tracer from the <u class="downloadApp">App Store</u>.<a href="https://www.youtube.com/watch?v=bTnB8LlfNX4&t=190s"> Here is a video</a> that explains how to use the app.</p>
+        </div>
+        
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <div class="stepContainer">
+            <img class="slideImg3" src="img/Step3Pic.png">
+            <div class="stepRow">
+                <div class="oneStep">
+                    <img class="bubble" src="img/Substep%20Bubble%201.png">
+                    <p class="instruction"><strong>Backdrop </strong> - A dull, black background ensures software can track movement</p>
+                </div>
+                <div class="oneStep">
+                    <img class="bubble" src="img/Substep%20Bubble%202.png">
+                    <p class="instruction"><strong>Cultivated Mutant and Wild Type Plants </strong>- You will need both genotypes of the Arabidopsis thaliana in order to measure them in Plant Tracer.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="bubble" src="img/Substep%20Bubble%203.png">
+                    <p class="instruction"><strong>Plant Labels </strong> - These will be used to identify plant accession number.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="bubble" src="img/Substep%20Bubble%204.png">
+                    <p class="instruction"><strong>Miniature Ruler </strong> - Rulers can be printed <a href="img/Ruler%20template.pdf" download>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="bubble" src="img/Substep%20Bubble%205.png">
+                    <p class="instruction"><strong>Phone Stand </strong> - You can use Binder Clips to hold your phone in place while recording your experiment.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="bubble" src="img/Substep%20Bubble%206.png">
+                    <p class="instruction"><strong>Phone and Charger </strong> - You will need to use a charged smartphone or tablet with the free Lapse It app in order to record and upload your video to Plant Tracer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <img class="slideImg4" src="img/Step4.png">
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <img class="slideImg5" src="img/Step5.png">
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <img class="slideImg" src="img/Step6.png">
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <img class="slideImg" src="img/Step7.png">
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div class="bigSubStep">
+        <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
+        <img class="slideImg4" src="img/Step8.png">
+        <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
+    </div>
+    
+    <div id="greenBubbles"><img id="greenBubblesImg" src="img/Green%20Bubbles%20(1%20Full).png"></div>
+</div>
+
+<div class="Mobile">
+    <h2 id="mobileHeading">Step 1. <span class="unbold">Grow your specimens</span></h2>
+    <div class="mobileStep">
+        <img id="bottle" src="img/Bottle.png">
+        <img class="substepBubble" src="img/Substep%20Bubble%201.png">
+        <p class="description"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="https://www.carolina.com/growth-and-light-carts/plant-growth-cart/199716.pr?question=plant+growth+cart" target="_blank">purchase a lighting arrangement</a>.</u></p>
+    </div>
+    
+    <div class="mobileStep">
+        <div id="potterPlant">        
+            <div><img id="potter" src="img/potter.png"></div>
+            <div><img id="plant" src="img/plant.png"></div>
+        </div>
+        <img class="substepBubble" src="img/Substep%20Bubble%202.png">
+        <p class="description">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="https://abrc.osu.edu/seed-handling" target="_blank">HERE</a></u>.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img id="bigPlant" src="img/big%20plant.png">
+        <img id="stepBubble3" class="substepBubble" src="img/Substep%20Bubble%203.png">
+        <p class="description">Over time, thin seeds to one individual plant per pot using a forcep (tweezers). When your plant begins to flower for the first time, you are ready to begin running the experiment. If you are not ready to perform the experiment you can cut off the floweing stem and new ones will emerge.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="PTPhones" src="img/lapse%20it%20phone.jpg">
+        <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description">Download Lapse It from the <u class="downloadLapse">App Store.</u></p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="PTPhones" src="img/plant%20tracer%20phone.jpg">
+        <img id="step2Bubble1" class="substepBubble" src="img/Substep%20Bubble%202.png">
+        <p class="description">Download Plant Tracer <u class="downloadApp">from the App Store.</u><a href="https://www.youtube.com/channel/UCBqQIjHgrNiNKvz6vxxtpWw?view_as=subscriber"> Here is a video</a> that explains how to use the app.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg" src="img/mobileStep3Img.png">
+        <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description"><strong>Backdrop </strong> - A dull, black background ensures software can track movement</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg" src="img/mobilestep3Img2.png">
+        <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
+        <p class="description"><strong>Cultivated Mutant and Wild Type Plants </strong>- You will need both genotypes of the Arabidopsis thaliana in order to measure them in Plant Tracer.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg" src="img/mobilestep3Img3.png">
+        <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%203.png"></div>
+        <p class="description"><strong>Plant Labels </strong> - These will be used to identify plant accession number.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img id="Step3Img4" class="mobileImg" src="img/mobilestep3Img4.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%204.png"></div>
+        <p class="description"><strong>Miniature Ruler </strong> - Rulers can be printed <a href="img/Ruler%template.pdf" download>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg" src="img/mobilestep3Img5.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%205.png"></div>
+        <p class="description"><strong>Phone Stand </strong> - You can use Binder Clips to hold your phone in place while recording your experiment.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg" src="img/mobilestep3Img6.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%206.png"></div>
+        <p class="description"><strong>Phone and Charger </strong> - You will need to use a charged smartphone or tablet with the free Lapse It app in order to record and upload your video to Plant Tracer.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg4" src="img/Step4Img.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description">Place a solid, dull background behind the flowering stems.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg4" src="img/Step4Img.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
+        <p class="description">Insert the rulers into each pot so that the edge of the ruler is in the same focal plant as the flowering stem.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg4" src="img/Step4Img.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%203.png"></div>
+        <p class="description">Place the Wild Type and Mutant labels on the appropriate plants.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg4" src="img/Step4Img.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%204.png"></div>
+        <p class="description">Place the recording device close enough to fill the screens with the plant parts of interest. </p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg4" src="img/Step5Img1.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description">For circumnutation plants are kept upright. </p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg4" src="img/Step5Img2.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
+        <p class="description">For gravitropism plants are placed on their side with their flowering "pointing" towards each other. </p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step6Img1.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description"> Turn your device to <strong>airplane mode</strong> foruninterrupted video capture. <strong>Plug your device</strong> into an electrical outlet to maintain battery power.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step6Img2.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
+        <p class="description"> <strong>Open Lapse It Settings</strong><br>
+        a. Change the Frame Interval to <strong>2</strong><br>
+        b. Change the <em>Frames per second</em> to <strong>20</strong><br>
+        c. Use the highest resolution available<br>
+        d. Keep all other settings the same
+        </p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step6Img3.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%203.png"></div>
+        <p class="description"> Move as close to the subject material as possible (flowering stems, ruler) so that it fills the screen. Open Lapse It, click on <em>New Capture</em>. Hit the red <em>Capture</em> button to begin recording. Leave the device recording for approximately 2 hours.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step6Img4.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%204.png"></div>
+        <p class="description"> Click <em>Render</em> to save the recording. The rendered movie name should contain: <strong>mutant name, accession number </strong>(from the tag) <strong>your name </strong>(first initial and last name) and the <strong>date</strong> (month_day_year). <span id="example">Example: SALK_1234_JVALLE_08_05_2018</span></p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step7Img1.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description"><strong>Upload and trim video</strong> - Open Plant Tracer and select either Gravitropism or Circumnutation. Upload your recording by tapping the Camera icon. Trim the video length using the sliders to remove the logo at the end or unnecessary footage.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step7Img2.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
+        <p class="description"><strong>Define Capture Interval</strong> - When uploading timelapse videos from Lapse It (See step 6, second action), specify the frame interval (number of pictures taken per minute) and the Render Setting Frames per second as 20.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step7Img3.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%203.png"></div>
+        <p class="description"><strong>Set the scale</strong> - Click <em>Draw Line</em> and tap on two spots on the ruler. If the line is not parallel with the ruler markings, click <em>Undo</em> and then <em>Draw Line</em> again until you are sure it is straight and that an accurate span can be measured.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step7Img4.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%204.png"></div>
+        <p class="description"><strong>Tap to measure span in millimeters</strong> - Type in ruler line length. Remember to add the value in millimeters.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step8Img1.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
+        <p class="description"><strong>Mark Apex</strong> - Tap to create and then center a box over the apex for tracking.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step8Img2.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
+        <p class="description"><strong>Mark Inflection Point (only for Gravitropism)</strong> - Tap a square at the point of maximum bending on the axis (replay the video if needed to confirm the precise inflection point). Tap <em>Draw Line</em> to connect the boxes, and for calibration enter the line distance.</p>
+    </div>
+    
+    <div class="mobileStep">
+        <img class="mobileImg6" src="img/Step8Img3.png">
+        <div><img class="substepBubble" src="img/Substep%20Bubble%203.png"></div>
+        <p class="description"><strong>Results</strong> - Tap <em>Tracking</em> to trace the apex and <em>Show Result</em> to see X and Y graphs and amplitude, rate and angle. Screenshot saves a picture of the data into the photo library. Enter your data into the worksheet. Enter Max Amplitude (the distance that the apex moved), the Rate and the Angle. Enter the plant strain (WT or Salk number).</p>
+    </div>
+
+<div class="buttons">
+    <div><img class="backBtn" src="img/Back%20Button.png"></div>
+    <div><img class="nextBtn" src="img/Next%20Button.png"></div>
+</div>
+    
+<div id="mobileBubbles"><img id="mobileBubblesImg" src="img/Green%20Bubbles%20(1%20Full).png"></div>
+</div>    
+
+</body>
+ 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+               crossorigin="anonymous">
+      </script>
+      <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        
+        $(document).ready(function() {
+        $(".navBar a").each(function() {
+        if (this.href == window.location.href) {
+            $(this).addClass("active");
+        }
+    });
+});
+
+            $(document).ready(function(){
+            $(".menu-wrap a").each(function() {
+                if(this.href == window.location.href) {
+                    $(this).addClass("active");
+                }
+            })
+        });
+
+        $(document).ready(function() {
+            var $toggleButton = $('.toggle-button');
+            var $menuWrap = $('.menu-wrap');
+        
+            $toggleButton.on('click', function() {
+                    $(this).toggleClass('button-open');
+                    $menuWrap.toggleClass('menu-show');
+                });
+            });
+
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+              $(".navLogin").text("Logout");
+              $(".navLogin").on('click',function(e){
+                  e.stopPropagation();
+                  window.location.href="/logout";
+                });
+            }
+        }); 
+
+          $(".downloadApp").on('click', function(){
+            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+
+                if(mac){
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+        }
+                else{
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+        }
+            });
+
+
+          $(".downloadLapse").on('click', function(){
+            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+
+                if(mac){
+                    window.location.href = 'https://itunes.apple.com/app/id539108382';
+        }
+                else{
+                    window.location.href = 'https://itunes.apple.com/app/id539108382';
+        }
+            });
+
+var i = 0; 
+var x = 0;
+        
+if(i==0){
+    $(".backBtn").hide();
+    };
+
+    $(".nextBtn").on('click', function (){
+        if(window.innerWidth > 600){
+            i++;
+            if(i!=0){
+                $(".backBtn").show();
+            };
+            $("h1").text(headlines[i]);
+            plusDivs(1);
+            if(i == 7){
+                $(".nextBtn").hide();
+            }
+            $("#greenBubblesImg").attr("src",greenBubbles[i]);
+        }
+        
+        if(window.innerWidth < 601){
+            i++; 
+            console.log("Slide number: "+ i);
+            if(i!=0){
+                $(".backBtn").show();
+;            };
+            
+            var z = mobileHeadlines[x][1];
+            
+            if(i==z){
+                $("#mobileHeading").text(headlines[x+1]);
+                 $("#mobileBubblesImg").attr("src",greenBubbles[x+1]);
+                if(x!=6){
+                    x++;
+                    console.log("Headline number: "+x);
+                }
+                
+            }
+            plusMobile(1);
+            if(i == 27){
+                $(".nextBtn").hide();
+            }
+        }
+        });
+        
+    $(".backBtn").on('click', function (){
+        if(window.innerWidth > 600){
+            i--;
+            if(i==0){
+                $(".backBtn").hide();
+                $(".nextBtn").show();
+            }
+            $("h1").text(headlines[i]);
+            plusDivs(-1);
+            if(i!=7){
+                $(".nextBtn").show();
+            }
+            $("#greenBubblesImg").attr("src",greenBubbles[i]);
+        }
+        
+        if(window.innerWidth < 601){
+            i--; 
+            if(i==0){
+                $(".backBtn").hide();
+                $(".nextBtn").show();
+                ;            
+            };
+
+            if(x!=0){
+                var z = mobileHeadlines[x-1][1]; 
+                var headline = z-1;
+            }
+            
+            if(i==headline){
+                $("#mobileHeading").text(headlines[x-1]);
+                $("#mobileBubblesImg").attr("src",greenBubbles[x-1]);
+                if(x!=1){
+                    x--;
+                }
+            }
+            plusMobile(-1);
+            if(i!=27){
+                $(".nextBtn").show();
+            }
+        }
+        
+        });
+        
+var headlines = ["Step 1. Grow your specimens","Step 2. Download software", "Step 3. Growing materials", "Step 4. Experimental set up", "Step 5. Experimental set up", "Step 6. Recording your experiment", "Step 7. Uploading videos to Plant Tracer", "Step 8. Marking points for movement capture"];
+        
+
+var mobileHeadlines = [[1,3],[2,5],[3,11],[4,15],[5,17],[6,21],[7,25]];
+
+var greenBubbles = ["img/Green%20Bubbles%20(1%20Full).png", "img/Green%20Bubbles%20(2%20Full).png", "img/Green%20Bubbles%20(3%20Full).png", "img/Green%20Bubbles%20(4%20Full).png", "img/Green%20Bubbles%20(5%20Full).png", "img/Green%20Bubbles%20(6%20Full).png", "img/Green%20Bubbles%20(7%20Full).png", "img/Green%20Bubbles%20(8%20Full).png"];
+        
+var curSlide = 1;
+if(window.innerWidth>600){
+    slideshow(curSlide);   
+}
+if(window.innerWidth<601){
+    mobile(curSlide);
+}
+
+function plusDivs(n) {
+    slideshow(curSlide += n);
+}
+
+function plusMobile(n) {
+    mobile(curSlide += n);
+}
+        
+function mobile(n) {
+  var i;
+  var x = document.getElementsByClassName("mobileStep");
+    console.log(x.length);
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[curSlide-1].style.display = "block";  
+}
+
+function slideshow(n) {
+    var i;
+    var x = document.getElementsByClassName("bigSubStep");
+    if (n > x.length) {
+        curSlide = 1
+    } 
+    if (n < 1) {
+        curSlide = x.length
+    };
+    for (i = 0; i < x.length; i++) 
+    {
+        x[i].style.display = "none"; 
+    }
+    x[curSlide-1].style.display = "flex"; 
+};
+
+        
+    </script>
+
+</html>

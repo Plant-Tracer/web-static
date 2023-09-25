@@ -1,0 +1,49 @@
+#reset{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3%;
+	background-color: 
+}
+
+.form-group{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1{
+	text-align: center;
+	margin-top: 3%;
+}
+
+.resetBtn{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn:hover,
+.btn:focus{
+	cursor: pointer;
+}
+
+#message{
+   background-color: #ff7270;
+   position: absolute;
+   width: 60%;
+   left: 20%;
+   top: 15%;
+   z-index: 999;
+}
+
+@media only screen and (max-width: 600px){
+	#message{
+	   background-color: #ff7270;
+	   position: absolute;
+	   width: 60%;
+	   left: 20%;
+	   top: 15%;
+	   z-index: 999;
+	}
+}
