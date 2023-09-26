@@ -1,4 +1,5 @@
-``` pyserver - a simple HTTP server for running planttracer.com locally
+'''
+pyserver - a simple HTTP server for running planttracer.com locally
     Credit: https://stackoverflow.com/questions/56825520/using-python-simplehttpserver-to-serve-files-without-html, Emrah Diril, user:30581
 
     This will serve the files in the current working directory and crucially
@@ -7,7 +8,7 @@
     Usage:
     cd <my-web-server-files-root>
     python3 .../pyserver.py
-```
+'''
 
 import http.server
 from http.server import HTTPServer, BaseHTTPRequestHandler
