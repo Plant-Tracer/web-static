@@ -20,10 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: "Deploy to $APP_HOST $DEPLOY_DIR"
+      - name: "Deploy to @${{ APP_HOST }} @${{ $DEPLOY_DIR }}"
         run: |
           eval $(ssh-agent)
           base64 -d <<< "${{ secrets.PT_SSH_BASE64 }}" | ssh-add  -
           ssh-add -l
-          ssh -o StrictHostKeyChecking=no -o GlobalKnownHostsFile=etc/known_hosts $SSH_USER@$APP_HOST "python3 --version; hostname; pwd; ls -l"
+          ssh -o StrictHostKeyChecking=no -o GlobalKnownHostsFile=etc/known_hosts $SSH_USER@$APP_HOST "python3 --version; hostname; pwd; cd $DEPLOY_DIR; ls -l"
           ssh -o StrictHostKeyChecking=no -o GlobalKnownHostsFile=etc/known_hosts $SSH_USER@$APP_HOST "cd $DEPLOY_DIR; git checkout main && git pull --recurse-submodules"
