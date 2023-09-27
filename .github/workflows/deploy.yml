@@ -4,17 +4,17 @@ concurrency: production
 
 on:
   pull_request:
-#    types: [closed]
+    types: [closed]
   workflow_dispatch:
 
 env:
   SSH_USER: planttracer
   APP_HOST: planttracer.com
-  DEPLOY_DIR: deploy_test/web-static
+  DEPLOY_DIR: planttracer.com/web-static
 
 jobs:
   if-merged:
-#    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
