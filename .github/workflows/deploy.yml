@@ -3,7 +3,7 @@ name: Deploy
 concurrency: production
 
 on:
-#  pull_request:
+  pull_request:
 #    types: [closed]
   workflow_dispatch:
 
@@ -13,9 +13,8 @@ env:
   DEPLOY_DIR: deploy_test/web-static
 
 jobs:
-#  if-merged:
+  if-merged:
 #    if: github.event.pull_request.merged == true
-  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
