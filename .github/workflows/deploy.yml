@@ -5,8 +5,7 @@ concurrency: production
 on:
 #  pull_request:
 #    types: [closed]
-  workflow-dispatch:
-
+  workflow_dispatch:
 
 env:
   SSH_USER: planttracer
