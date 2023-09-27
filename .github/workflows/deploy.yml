@@ -20,8 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: "Deploy to @${{ APP_HOST }} @${{ DEPLOY_DIR }}"
+      - name: "Deploy to $APP_HOST $DEPLOY_DIR"
         run: |
+          echo APP_HOST: $APP_HOST DEPLOY_DIR: $DEPLOY_DIR
           eval $(ssh-agent)
           base64 -d <<< "${{ secrets.PT_SSH_BASE64 }}" | ssh-add  -
           ssh-add -l
