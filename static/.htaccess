@@ -1,0 +1,16 @@
+<FilesMatch "^[^.]+$">
+    ForceType text/html
+</FilesMatch>
+
+
+AddType text/html	html
+AddType text/html	htm
+AddType application/pdf pdf
+AddType image/jpeg	jpg
+AddType image/heic      heic
+AddType image/heif      heif
+AddType video/x-msvideo avi 
+AddType video/mpeg      mpg
+AddType video/quicktime mov
+AddType application/octet-stream NEF
+AddType video/x-shockwave-flash swf
