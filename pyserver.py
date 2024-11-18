@@ -7,7 +7,7 @@ pyserver - a simple HTTP server for running planttracer.com locally
 
     Usage:
     cd <my-web-server-files-root>
-    python3 .../pyserver.py
+    python3 ../pyserver.py
 '''
 
 import http.server
@@ -27,4 +27,3 @@ httpd = socketserver.TCPServer(("", PORT), Handler)
 
 print("serving at port", PORT)
 httpd.serve_forever()
-
