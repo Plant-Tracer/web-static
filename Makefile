@@ -1,2 +1,2 @@
 serve:
-	(cd docs;python3 ../pyserver.py)
+	(cd static;python3 ../pyserver.py)

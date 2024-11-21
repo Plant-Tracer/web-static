@@ -12,9 +12,9 @@
    <link rel="stylesheet" type = "text/css" href="css/mobile/mobileAbout.css">
 
 <!-- Bootstrap -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script>
 </head>
 <body>
 
@@ -27,37 +27,36 @@
 <div class="menu-wrap">
     <div class="menu-sidebar">
         <ul class="menu">
-            <li><a href="index">Home</a></li>
-            <li><a href="usingplanttracer">Using Plant Tracer</a></li>
-	    <!--            <li><a href="database">Database</a></li> -->
-            <!--<li><a href="forums.html">Forums</a></li>
--->
-            <li><a href="plantliteracy">Plant Literacy</a></li>
-            <li><a href="about">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="usingplanttracer.html">Using Plant Tracer</a></li>
+	    <!--            <li><a href="database.html">Database</a></li> -->
+            <!--<li><a href="forums.html">Forums</a></li>-->
+            <li><a href="plantliteracy.html">Plant Literacy</a></li>
+            <li><a href="about.html">About</a></li>
 
             <li><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></li>
 
 	    <!--            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#"><span class="navLogin">Login</span></a></li> -->
 
-        </ul>           
+        </ul>
     </div>
 </div>
 
 <div class="navBar">
-    <div id="homeBtn"><p id="homeLogoBtn"><a href="index">Plant Tracer</a></p></div>
+    <div id="homeBtn"><p id="homeLogoBtn"><a href="index.html">Plant Tracer</a></p></div>
     <div id="notHomeBtns">
         <div class="navItem">
-<a href="usingplanttracer">Using Plant Tracer</a></div>
+<a href="usingplanttracer.html">Using Plant Tracer</a></div>
 	<!--        <div class="line" id="firstLine"><p id="firstLine">|</p></div> -->
 
-	<!--        <div class="navItem"><a href="database">Database</a></div> -->
+	<!--        <div class="navItem"><a href="database.html">Database</a></div> -->
 <!--    <div class="navItem"><a id="forums" href="forums.html">Forums</a></div> -->
         <div class="line"><p>|</p></div>
-        <div class="navItem" id="plantLiteracy"><a href="plantliteracy">Plant Literacy</a></div>
+        <div class="navItem" id="plantLiteracy"><a href="plantliteracy.html">Plant Literacy</a></div>
         <div class="line"><p>|</p></div>
-        <div class="navItem" id="about"><a href="about">About</a></div>
-    </div>
-    
+        <div class="navItem" id="about"><a href="about.html">About</a></div>
+   </div>
+
     <div id="userBtns">
         <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
 	<!--        <div id="navLoginBtn"><button type="button" class="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#"></a></div> -->
@@ -72,7 +71,7 @@
     <div class="modal-content">
       <div class="alert alert-danger" style="display:none"></div>
       <div class="modal-header">
-        
+
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -93,15 +92,15 @@
               <label for="Password"><strong>Password:</strong></label>
               <input type="password" class="form-control" name="password" id="password">
             </div>
-  
+
             <div class="loginLabel loginBtn">
               <button type="submit" class="btn btn-success">Login</button>
             </div>
-        
+
         </div>
       </div>
       <div class="modal-footer" style="background-color:#f1f1f1">
-        <a href="forgotpassword">Forgot password?</a>
+        <a href="forgotpassword.html">Forgot password?</a>
         </div>
     </div>
   </div>
@@ -161,7 +160,7 @@
         $(document).ready(function() {
             var $toggleButton = $('.toggle-button');
             var $menuWrap = $('.menu-wrap');
-        
+
             $toggleButton.on('click', function() {
                     $(this).toggleClass('button-open');
                     $menuWrap.toggleClass('menu-show');
@@ -173,7 +172,7 @@
               $(".navLogin").text("Logout");
               $(".navLogin").on('click',function(e){
                   e.stopPropagation();
-                  window.location.href="/logout";
+                  window.location.href="logout";
                 });
             }
         });
