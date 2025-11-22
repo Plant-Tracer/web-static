@@ -51,28 +51,58 @@ jobs:
           ls -lh screenshots/
           echo "screenshot_count=$(ls -1 screenshots/*.png 2>/dev/null | wc -l)" >> $GITHUB_OUTPUT
       
-      - name: Upload screenshots to imgur for PR comment
+      - name: Upload screenshots to imgur and create comment
         id: imgur-upload
         if: github.event_name == 'pull_request'
         run: |
-          # Create a simple markdown list of screenshots
+          # Start creating the comment
           echo "## 📸 Page Screenshots" > comment.md
           echo "" >> comment.md
           echo "**${{ steps.list-screenshots.outputs.screenshot_count }} pages rendered**" >> comment.md
           echo "" >> comment.md
-          echo "Screenshots have been generated for all static pages. You can:" >> comment.md
-          echo "- Download them from the **Artifacts** section below" >> comment.md
-          echo "- View individual files: \`index.png\`, \`about.png\`, \`plantliteracy.png\`, \`usingplanttracer.png\`, etc." >> comment.md
-          echo "" >> comment.md
-          echo "### Preview" >> comment.md
+          echo "Below are the rendered screenshots of all static pages. Click to view full size." >> comment.md
           echo "" >> comment.md
           
-          # List all generated screenshots
+          # Upload each screenshot to imgur and collect URLs
           if ls screenshots/*.png 1> /dev/null 2>&1; then
             for file in screenshots/*.png; do
               filename=$(basename "$file")
               pagename="${filename%.png}"
-              echo "- **$pagename**: \`$filename\` ($(du -h "$file" | cut -f1))" >> comment.md
+              filesize=$(du -h "$file" | cut -f1)
+              
+              echo "Uploading $filename to imgur..."
+              
+              # Upload to imgur anonymously
+              response=$(curl -s -X POST \
+                -H "Authorization: Client-ID 546c25a59c58ad7" \
+                -F "image=@$file" \
+                https://api.imgur.com/3/image)
+              
+              # Extract the link from response
+              link=$(echo "$response" | grep -o '"link":"[^"]*"' | cut -d'"' -f4 | sed 's/\\\//g')
+              
+              if [ -n "$link" ]; then
+                echo "✅ Uploaded $filename: $link"
+                
+                # Add to comment with embedded image
+                echo "### $pagename ($filesize)" >> comment.md
+                echo "" >> comment.md
+                echo "[![$pagename]($link)]($link)" >> comment.md
+                echo "" >> comment.md
+                echo "<details>" >> comment.md
+                echo "<summary>Click to expand full page view</summary>" >> comment.md
+                echo "" >> comment.md
+                echo "![$pagename]($link)" >> comment.md
+                echo "" >> comment.md
+                echo "</details>" >> comment.md
+                echo "" >> comment.md
+              else
+                echo "⚠️ Failed to upload $filename"
+                echo "### $pagename ($filesize)" >> comment.md
+                echo "" >> comment.md
+                echo "_Upload failed - download from artifacts below_" >> comment.md
+                echo "" >> comment.md
+              fi
             done
           else
             echo "- No screenshots generated (no HTML files found)" >> comment.md
@@ -80,12 +110,10 @@ jobs:
           
           echo "" >> comment.md
           echo "---" >> comment.md
-          echo "*Screenshots are automatically generated on every PR that modifies HTML, CSS, or JS files.*" >> comment.md
           echo "" >> comment.md
-          echo "**How to view:**" >> comment.md
-          echo "1. Scroll to the bottom of this page" >> comment.md
-          echo "2. Look for the 'Generate Page Screenshots' workflow" >> comment.md
-          echo "3. Click 'Details' → 'Summary' → Download 'page-screenshots' artifact" >> comment.md
+          echo "**Alternative:** Download all screenshots as a ZIP file from the **Artifacts** section below." >> comment.md
+          echo "" >> comment.md
+          echo "*Screenshots are automatically generated on every PR that modifies HTML, CSS, or JS files.*" >> comment.md
       
       - name: Comment on PR with screenshot info
         if: github.event_name == 'pull_request'

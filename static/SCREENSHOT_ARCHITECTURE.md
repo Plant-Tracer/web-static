@@ -41,7 +41,15 @@ This document explains how the automated screenshot generation system works in d
 │                           │                                      │
 │                           ▼                                      │
 │  ┌────────────────────────────────────────────────────────┐   │
-│  │ Step 4: Upload Artifacts                                │   │
+│  │ Step 4: Upload to Imgur                                 │   │
+│  │ - Upload each PNG to imgur.com                          │   │
+│  │ - Get direct image URLs                                 │   │
+│  │ - Create markdown with embedded images                  │   │
+│  └────────────────────────────────────────────────────────┘   │
+│                           │                                      │
+│                           ▼                                      │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │ Step 5: Upload Artifacts (Backup)                       │   │
 │  │ - Package all PNG files                                 │   │
 │  │ - Upload as GitHub artifact                             │   │
 │  │ - Set 30-day retention                                  │   │
@@ -49,9 +57,9 @@ This document explains how the automated screenshot generation system works in d
 │                           │                                      │
 │                           ▼                                      │
 │  ┌────────────────────────────────────────────────────────┐   │
-│  │ Step 5: Post PR Comment                                 │   │
-│  │ - Create markdown comment                               │   │
-│  │ - List all screenshots with sizes                       │   │
+│  │ Step 6: Post PR Comment                                 │   │
+│  │ - Create markdown comment with imgur URLs              │   │
+│  │ - Embed screenshots directly in comment                │   │
 │  │ - Post to PR conversation tab                           │   │
 │  └────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
@@ -151,12 +159,33 @@ GitHub Actions automatically:
 
 Storage location: GitHub artifact storage (separate from repository)
 
-### 5. PR Comment Integration
+### 5. Image Hosting (Imgur)
+
+For each screenshot:
+```bash
+# Upload to imgur anonymously
+response=$(curl -s -X POST \
+  -H "Authorization: Client-ID 546c25a59c58ad7" \
+  -F "image=@screenshot.png" \
+  https://api.imgur.com/3/image)
+
+# Extract direct link
+link=$(echo "$response" | grep -o '"link":"[^"]*"')
+```
+
+**Why imgur?**
+- ✅ Free anonymous uploads (no account needed)
+- ✅ Direct image URLs (no expiration)
+- ✅ Fast CDN delivery
+- ✅ Supports large images
+- ✅ No GitHub artifact limitations
+
+### 6. PR Comment Integration
 
 The workflow uses GitHub's API to:
 
 ```javascript
-// 1. Read comment template
+// 1. Read comment with embedded images
 const comment = fs.readFileSync('comment.md', 'utf8');
 
 // 2. Check for existing comment
@@ -176,6 +205,8 @@ if (botComment) {
 This ensures:
 - ✅ Only one comment per PR (updated on subsequent runs)
 - ✅ Comment appears in conversation tab
+- ✅ Screenshots directly visible (no download needed)
+- ✅ Click to view full size
 - ✅ Easy to find and access
 
 ## 🔐 Security & Permissions
@@ -211,10 +242,11 @@ Typical workflow run (~3-5 minutes):
 | Python setup           | 10-15s  | Install Python 3.12          |
 | Playwright install     | 60-90s  | Download Chromium (~100MB)   |
 | Screenshot generation  | 30-60s  | 5-10s per page               |
-| Upload artifacts       | 5-10s   | Upload PNGs                  |
+| Upload to imgur        | 10-30s  | 2-5s per image               |
+| Upload artifacts       | 5-10s   | Upload PNGs (backup)         |
 | Post comment           | 2-5s    | GitHub API call              |
 
-**Total**: ~3-5 minutes
+**Total**: ~3-6 minutes
 
 ### Resource Consumption
 

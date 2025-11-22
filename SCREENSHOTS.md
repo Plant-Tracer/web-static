@@ -28,10 +28,14 @@ When you create or update a pull request that modifies HTML, CSS, or JS files, t
 4. **Creates build artifacts**:
    - Uploads all PNG files as a single downloadable artifact
    - Artifacts are retained for 30 days
-5. **Posts to PR conversation**:
-   - Adds a comment with screenshot details
-   - Lists all generated files with sizes
-   - Provides instructions for downloading
+5. **Uploads screenshots to imgur**:
+   - Each PNG is uploaded to imgur anonymously
+   - Direct image URLs are obtained
+6. **Posts to PR conversation**:
+   - Adds a comment with embedded screenshots
+   - Screenshots are directly visible in the comment
+   - Click to view full size
+   - Provides alternative download link for artifacts
 
 ### Viewing Screenshots in PRs
 
@@ -40,7 +44,9 @@ When you create or update a pull request that modifies HTML, CSS, or JS files, t
 1. Open the PR on GitHub
 2. Scroll to the **Conversation** tab
 3. Look for the comment titled "📸 Page Screenshots"
-4. Follow the instructions to download artifacts
+4. View screenshots directly in the comment (images are embedded)
+5. Click any screenshot to view full size
+6. Expand "Click to expand full page view" for larger preview
 
 **Method 2: Actions Tab**
 
@@ -223,7 +229,13 @@ When modifying the screenshot system:
 ## ❓ FAQ
 
 **Q: Why do screenshots appear in the conversation tab?**  
-A: The workflow posts a comment with screenshot details, making them easy to find without navigating to the Actions tab.
+A: The workflow posts a comment with embedded screenshots, making them directly viewable without downloading or navigating to the Actions tab.
+
+**Q: Where are the images hosted?**  
+A: Screenshots are uploaded to imgur.com anonymously. This provides direct, permanent URLs that can be embedded in GitHub comments. Images are also backed up as GitHub artifacts for 30 days.
+
+**Q: Are the screenshots publicly accessible?**  
+A: Yes, screenshots are uploaded to imgur with direct links. Anyone with the PR link can view them. This is intentional for easy sharing and review.
 
 **Q: Can I generate screenshots for a single page?**  
 A: Currently, the script renders all HTML files. You can manually filter after generation.
