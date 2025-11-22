@@ -75,11 +75,12 @@ jobs:
               echo "Uploading $filename to imgur..."
               
               # Upload to imgur anonymously
-              # Using a public demo client ID for anonymous uploads
-              # If rate limits are hit, set IMGUR_CLIENT_ID secret in repository settings
+              # NOTE: This uses imgur's public demo client ID for anonymous uploads.
+              # This ID is intentionally public (from imgur's documentation) and rate-limited.
+              # For production use, create a free imgur account and set IMGUR_CLIENT_ID secret.
               CLIENT_ID="${{ secrets.IMGUR_CLIENT_ID }}"
               if [ -z "$CLIENT_ID" ]; then
-                CLIENT_ID="546c25a59c58ad7"  # Public demo ID (rate-limited)
+                CLIENT_ID="546c25a59c58ad7"  # imgur's public demo ID
               fi
               
               # Upload with error handling
@@ -94,11 +95,14 @@ jobs:
               
               # Check if upload was successful
               if [ "$http_code" = "200" ]; then
-                # Extract the link from response using jq if available
+                # Extract the link from response using jq (installed earlier in workflow)
+                # Fallback to grep/sed if jq fails (shouldn't happen, but defensive coding)
                 if command -v jq &> /dev/null; then
                   link=$(echo "$response_body" | jq -r '.data.link // empty' 2>/dev/null)
-                else
-                  # Fallback: extract link more carefully
+                fi
+                
+                # Fallback if jq failed or returned empty (defensive programming)
+                if [ -z "$link" ]; then
                   link=$(echo "$response_body" | grep -o '"link":"[^"]*"' | head -n1 | cut -d'"' -f4 | sed 's/\\\//g')
                 fi
               else
