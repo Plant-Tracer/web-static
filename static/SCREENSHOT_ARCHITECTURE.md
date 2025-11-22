@@ -164,13 +164,19 @@ Storage location: GitHub artifact storage (separate from repository)
 For each screenshot:
 ```bash
 # Upload to imgur anonymously
+# Uses public demo client ID or repository secret
+CLIENT_ID="${{ secrets.IMGUR_CLIENT_ID }}"
+if [ -z "$CLIENT_ID" ]; then
+  CLIENT_ID="<public-demo-id>"  # Fallback for anonymous uploads
+fi
+
 response=$(curl -s -X POST \
-  -H "Authorization: Client-ID 546c25a59c58ad7" \
+  -H "Authorization: Client-ID $CLIENT_ID" \
   -F "image=@screenshot.png" \
   https://api.imgur.com/3/image)
 
-# Extract direct link
-link=$(echo "$response" | grep -o '"link":"[^"]*"')
+# Extract direct link using jq (JSON parser)
+link=$(echo "$response" | jq -r '.data.link')
 ```
 
 **Why imgur?**
@@ -179,6 +185,12 @@ link=$(echo "$response" | grep -o '"link":"[^"]*"')
 - ✅ Fast CDN delivery
 - ✅ Supports large images
 - ✅ No GitHub artifact limitations
+
+**Security notes:**
+- Uses a public demo Client ID for anonymous uploads
+- Repository can optionally set `IMGUR_CLIENT_ID` secret for dedicated rate limits
+- No personal data or credentials required
+- Images are public but URL is not guessable
 
 ### 6. PR Comment Integration
 

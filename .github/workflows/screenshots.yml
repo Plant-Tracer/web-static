@@ -32,6 +32,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install playwright
           playwright install chromium
+          # Install jq for JSON parsing (used by imgur upload)
+          sudo apt-get update && sudo apt-get install -y jq
       
       - name: Generate screenshots
         run: |
@@ -73,13 +75,24 @@ jobs:
               echo "Uploading $filename to imgur..."
               
               # Upload to imgur anonymously
+              # Using a public demo client ID for anonymous uploads
+              # If rate limits are hit, set IMGUR_CLIENT_ID secret in repository settings
+              CLIENT_ID="${{ secrets.IMGUR_CLIENT_ID }}"
+              if [ -z "$CLIENT_ID" ]; then
+                CLIENT_ID="546c25a59c58ad7"  # Public demo ID
+              fi
+              
               response=$(curl -s -X POST \
-                -H "Authorization: Client-ID 546c25a59c58ad7" \
+                -H "Authorization: Client-ID $CLIENT_ID" \
                 -F "image=@$file" \
                 https://api.imgur.com/3/image)
               
-              # Extract the link from response
-              link=$(echo "$response" | grep -o '"link":"[^"]*"' | cut -d'"' -f4 | sed 's/\\\//g')
+              # Extract the link from response using jq if available, fallback to grep
+              if command -v jq &> /dev/null; then
+                link=$(echo "$response" | jq -r '.data.link // empty')
+              else
+                link=$(echo "$response" | grep -o '"link":"[^"]*"' | cut -d'"' -f4 | sed 's/\\\//g')
+              fi
               
               if [ -n "$link" ]; then
                 echo "✅ Uploaded $filename: $link"
