@@ -8,7 +8,7 @@
 }
 
     #homePlant {
-    width: 45%;
+    width: 40%;
     height: 87%;
     position: fixed;
     bottom: 0;
@@ -26,7 +26,6 @@
     #homePageRight {
     flex-direction: column;
     text-align:center;
-    display:block;
     background-color: transparent;
     border: 1px solid transparent;
     width: 50%;

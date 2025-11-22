@@ -21,10 +21,9 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" type = "text/css" href="css/desktop/desktopModal.css">
 
-<!-- Boostrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 
   </head>
   <body>
@@ -170,7 +169,7 @@
         <img id="homeLogo" src="img/Plant%20Tracer%20Logo.png">
         <p id="description">A method to explore the genetics of plant movement.</p>
         <br/>
-        <p>Access the BETA <a href="https://app.planttracer.com">Plant Tracer webapp<a></p>
+        <p>Access the BETA <a href="https://app.planttracer.com">Plant Tracer webapp</a></p>
         <br/>
         <p>If you don't already have a course key to use to register your Plant Tracer account,</p>
         <p>you may use the course key 389f-4163</p>
@@ -183,12 +182,10 @@
 </body>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-               crossorigin="anonymous">
-      </script>
-      <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
       <script>
         $(document).ready(function() {
         $(".navBar a").each(function() {
@@ -214,17 +211,6 @@
             $menuWrap.toggleClass('menu-show');
         });
     });
-
-        $(document).ready(function(){
-            if(windowvar.isLoggedIn === true){
-              $(".navLogin").text("Logout");
-              $(".hideLogin").hide();
-              $(".navLogin").on('click',function(e){
-                  e.stopPropagation();
-                  window.location.href="/logout";
-                });
-            }
-        });
 
         $(document).ready(function (){
           $("#downloadApple").on("click", function(){
