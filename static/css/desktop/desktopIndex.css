@@ -44,7 +44,7 @@
     }
 
     #description {
-        font-family: "futura";
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
         font-weight: bold;
         color: #2da633;
         width: 90%;
@@ -65,7 +65,7 @@
         width: 160px;
         height: 40px;
         font-weight: bold;
-        font: Futura;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     }
     
     .optionBtn:hover,
@@ -146,7 +146,7 @@
         margin-top: 15px;
         width: 42%;
         height: 60px;
-        font-family: "futura";
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
         margin-right: 1.5%;
         font-size: 1.5vw;
     }

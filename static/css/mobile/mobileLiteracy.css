@@ -2,7 +2,7 @@
     h2 {
         display: flex;
         flex-direction: column;
-        font-family: futura !important;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif !important;
         text-align: center !important;
         font-size: 1.5em !important;
         font-weight: bold !important;
@@ -28,7 +28,7 @@
         margin: auto !important;
         color: #2da633 !important;
         text-align: center !important;
-        font-family: futura !important;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif !important;
         font-weight: bold !important;
         font-size: 2em !important;
     }
