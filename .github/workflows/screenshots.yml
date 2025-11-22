@@ -68,11 +68,15 @@ jobs:
           echo "" >> comment.md
           
           # List all generated screenshots
-          for file in screenshots/*.png; do
-            filename=$(basename "$file")
-            pagename="${filename%.png}"
-            echo "- **$pagename**: \`$filename\` ($(du -h "$file" | cut -f1))" >> comment.md
-          done
+          if ls screenshots/*.png 1> /dev/null 2>&1; then
+            for file in screenshots/*.png; do
+              filename=$(basename "$file")
+              pagename="${filename%.png}"
+              echo "- **$pagename**: \`$filename\` ($(du -h "$file" | cut -f1))" >> comment.md
+            done
+          else
+            echo "- No screenshots generated (no HTML files found)" >> comment.md
+          fi
           
           echo "" >> comment.md
           echo "---" >> comment.md

@@ -205,14 +205,14 @@ permissions:
 
 Typical workflow run (~3-5 minutes):
 
-| Step | Time | Notes |
-|------|------|-------|
-| Checkout | 5-10s | Clone repository |
-| Python setup | 10-15s | Install Python 3.12 |
-| Playwright install | 60-90s | Download Chromium (~100MB) |
-| Screenshot generation | 30-60s | 5-10s per page |
-| Upload artifacts | 5-10s | Upload PNGs |
-| Post comment | 2-5s | GitHub API call |
+| Step                   | Time    | Notes                        |
+|------------------------|---------|------------------------------|
+| Checkout               | 5-10s   | Clone repository             |
+| Python setup           | 10-15s  | Install Python 3.12          |
+| Playwright install     | 60-90s  | Download Chromium (~100MB)   |
+| Screenshot generation  | 30-60s  | 5-10s per page               |
+| Upload artifacts       | 5-10s   | Upload PNGs                  |
+| Post comment           | 2-5s    | GitHub API call              |
 
 **Total**: ~3-5 minutes
 
