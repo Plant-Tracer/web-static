@@ -79,22 +79,34 @@ jobs:
               # If rate limits are hit, set IMGUR_CLIENT_ID secret in repository settings
               CLIENT_ID="${{ secrets.IMGUR_CLIENT_ID }}"
               if [ -z "$CLIENT_ID" ]; then
-                CLIENT_ID="546c25a59c58ad7"  # Public demo ID
+                CLIENT_ID="546c25a59c58ad7"  # Public demo ID (rate-limited)
               fi
               
-              response=$(curl -s -X POST \
+              # Upload with error handling
+              response=$(curl -s -w "\n%{http_code}" -X POST \
                 -H "Authorization: Client-ID $CLIENT_ID" \
                 -F "image=@$file" \
                 https://api.imgur.com/3/image)
               
-              # Extract the link from response using jq if available, fallback to grep
-              if command -v jq &> /dev/null; then
-                link=$(echo "$response" | jq -r '.data.link // empty')
+              # Extract HTTP status code (last line)
+              http_code=$(echo "$response" | tail -n1)
+              response_body=$(echo "$response" | head -n-1)
+              
+              # Check if upload was successful
+              if [ "$http_code" = "200" ]; then
+                # Extract the link from response using jq if available
+                if command -v jq &> /dev/null; then
+                  link=$(echo "$response_body" | jq -r '.data.link // empty' 2>/dev/null)
+                else
+                  # Fallback: extract link more carefully
+                  link=$(echo "$response_body" | grep -o '"link":"[^"]*"' | head -n1 | cut -d'"' -f4 | sed 's/\\\//g')
+                fi
               else
-                link=$(echo "$response" | grep -o '"link":"[^"]*"' | cut -d'"' -f4 | sed 's/\\\//g')
+                echo "⚠️ Upload failed for $filename (HTTP $http_code)"
+                link=""
               fi
               
-              if [ -n "$link" ]; then
+              if [ -n "$link" ] && [[ "$link" == http* ]]; then
                 echo "✅ Uploaded $filename: $link"
                 
                 # Add to comment with embedded image
