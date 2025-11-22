@@ -1,0 +1,46 @@
+name: Generate Page Screenshots
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'static/**/*.html'
+      - 'static/**/*.css'
+      - 'static/**/*.js'
+      - 'render_pages.py'
+  workflow_dispatch:
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install chromium
+      
+      - name: Generate screenshots
+        run: |
+          python3 render_pages.py --output-dir screenshots
+      
+      - name: Upload screenshots as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: page-screenshots
+          path: screenshots/*.png
+          retention-days: 30
+      
+      - name: List generated screenshots
+        run: |
+          echo "Generated screenshots:"
+          ls -lh screenshots/
