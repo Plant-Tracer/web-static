@@ -2,7 +2,7 @@
     /* CSS for Plant Literacy*/
     
     h1 {
-        font-family: futura !important;
+        font-family: 'Outfit', sans-serif !important;
         text-align: center !important;
         color: #2da633 !important;
         margin-top: 2% !important;
@@ -13,7 +13,7 @@
     h2 {
         display: flex;
         flex-direction: column;
-        font-family: futura !important;
+        font-family: 'Outfit', sans-serif !important;
         text-align: center !important;
         margin-bottom: 1% !important;
         font-weight: bold !important;

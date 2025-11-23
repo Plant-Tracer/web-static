@@ -4,7 +4,7 @@
     }
     
     #mobileHeading {
-        font-family: "futura";
+        font-family: 'Outfit', sans-serif;
         text-align: center;
         margin-top: 8%;
         color: #2da633;
@@ -45,7 +45,7 @@
     }
     
     .description {
-        font-family: Futura;
+        font-family: 'Outfit', sans-serif;
         color: black;
         width: 80%;
         margin-top: 30px;
@@ -154,7 +154,7 @@
     h2 {
         display: flex;
         flex-direction: column;
-        font-family: "futura";
+        font-family: 'Outfit', sans-serif;
         text-align: center;
     }
     
