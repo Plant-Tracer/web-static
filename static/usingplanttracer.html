@@ -466,34 +466,13 @@
             var greenBubbles = ["img/Green%20Bubbles%20(1%20Full).png", "img/Green%20Bubbles%20(2%20Full).png", "img/Green%20Bubbles%20(3%20Full).png", "img/Green%20Bubbles%20(4%20Full).png", "img/Green%20Bubbles%20(5%20Full).png", "img/Green%20Bubbles%20(6%20Full).png", "img/Green%20Bubbles%20(7%20Full).png", "img/Green%20Bubbles%20(8%20Full).png"];
             var curSlide = 1;
 
-            var backBtn = document.querySelector('.backBtn');
-            var nextBtn = document.querySelector('.nextBtn');
             var heading = document.querySelector('h1');
             var greenBubblesImg = document.getElementById('greenBubblesImg');
             var mobileHeading = document.getElementById('mobileHeading');
             var mobileBubblesImg = document.getElementById('mobileBubblesImg');
+            var desktopDiv = document.querySelector('.desktop');
+            var mobileDiv = document.querySelector('.Mobile');
 
-            function showHideNavButtons() {
-                if (i === 0) {
-                    backBtn.style.display = 'none';
-                } else {
-                    backBtn.style.display = 'block';
-                }
-
-                if (window.innerWidth > 600) {
-                    if (i === 7) {
-                        nextBtn.style.display = 'none';
-                    } else {
-                        nextBtn.style.display = 'block';
-                    }
-                } else {
-                    if (i === 27) {
-                        nextBtn.style.display = 'none';
-                    } else {
-                        nextBtn.style.display = 'block';
-                    }
-                }
-            }
 
             function slideshow(n) {
                 var slides = document.getElementsByClassName("bigSubStep");
@@ -507,6 +486,10 @@
                     slides[j].style.display = "none";
                 }
                 slides[curSlide - 1].style.display = "flex";
+                var backBtn = slides[curSlide-1].querySelector('.backBtn');
+                var nextBtn = slides[curSlide-1].querySelector('.nextBtn');
+                if(backBtn) backBtn.style.display = curSlide === 1 ? 'none' : 'block';
+                if(nextBtn) nextBtn.style.display = curSlide === slides.length ? 'none' : 'block';
             }
 
             function mobile(n) {
@@ -521,6 +504,10 @@
                     slides[j].style.display = "none";
                 }
                 slides[curSlide - 1].style.display = "block";
+                var backBtn = document.querySelector('.buttons .backBtn');
+                var nextBtn = document.querySelector('.buttons .nextBtn');
+                if(backBtn) backBtn.style.display = curSlide === 1 ? 'none' : 'block';
+                if(nextBtn) nextBtn.style.display = curSlide === slides.length ? 'none' : 'block';
             }
 
             function plusDivs(n) {
@@ -537,56 +524,50 @@
                 mobile(curSlide);
             }
 
-            showHideNavButtons();
+            desktopDiv.addEventListener('click', function(e) {
+                if (e.target.classList.contains('nextBtn')) {
+                    i++;
+                    heading.textContent = headlines[i];
+                    plusDivs(1);
+                    greenBubblesImg.setAttribute("src", greenBubbles[i]);
+                }
+                if (e.target.classList.contains('backBtn')) {
+                    i--;
+                    heading.textContent = headlines[i];
+                    plusDivs(-1);
+                    greenBubblesImg.setAttribute("src", greenBubbles[i]);
+                }
+            });
 
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function() {
-                    if (window.innerWidth > 600) {
-                        i++;
-                        heading.textContent = headlines[i];
-                        plusDivs(1);
-                        greenBubblesImg.setAttribute("src", greenBubbles[i]);
-                    } else {
-                        i++;
-                        var z = mobileHeadlines[x] ? mobileHeadlines[x][1] : 0;
-                        if (i === z) {
-                            if(headlines[x+1]) mobileHeading.textContent = headlines[x + 1];
-                            if(greenBubbles[x+1]) mobileBubblesImg.setAttribute("src", greenBubbles[x + 1]);
-                            if (x != 6) {
-                                x++;
+            mobileDiv.addEventListener('click', function(e) {
+                if (e.target.classList.contains('nextBtn')) {
+                    i++;
+                    var z = mobileHeadlines[x] ? mobileHeadlines[x][1] : 0;
+                    if (i === z) {
+                        if(headlines[x+1]) mobileHeading.innerHTML = 'Step ' + (x+2) + '. <span class="unbold">' + headlines[x + 1].substring(8) + '</span>';
+                        if(greenBubbles[x+1]) mobileBubblesImg.setAttribute("src", greenBubbles[x + 1]);
+                        if (x != 6) {
+                            x++;
+                        }
+                    }
+                    plusMobile(1);
+                }
+                if (e.target.classList.contains('backBtn')) {
+                    i--;
+                    if (x != 0) {
+                        var z = mobileHeadlines[x - 1][1];
+                        var headline = z - 1;
+                        if (i === headline) {
+                            if(headlines[x-1]) mobileHeading.innerHTML = 'Step ' + (x) + '. <span class="unbold">' + headlines[x-1].substring(8) + '</span>';
+                            if(greenBubbles[x-1]) mobileBubblesImg.setAttribute("src", greenBubbles[x - 1]);
+                            if (x != 0) {
+                                x--;
                             }
                         }
-                        plusMobile(1);
                     }
-                    showHideNavButtons();
-                });
-            }
-
-            if (backBtn) {
-                backBtn.addEventListener('click', function() {
-                    if (window.innerWidth > 600) {
-                        i--;
-                        heading.textContent = headlines[i];
-                        plusDivs(-1);
-                        greenBubblesImg.setAttribute("src", greenBubbles[i]);
-                    } else {
-                        i--;
-                        if (x != 0) {
-                            var z = mobileHeadlines[x - 1][1];
-                            var headline = z - 1;
-                            if (i === headline) {
-                                if(headlines[x-1]) mobileHeading.textContent = headlines[x - 1];
-                                if(greenBubbles[x-1]) mobileBubblesImg.setAttribute("src", greenBubbles[x - 1]);
-                                if (x != 1) {
-                                    x--;
-                                }
-                            }
-                        }
-                        plusMobile(-1);
-                    }
-                    showHideNavButtons();
-                });
-            }
+                    plusMobile(-1);
+                }
+            });
         });
     </script>
 
