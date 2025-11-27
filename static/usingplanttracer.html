@@ -23,7 +23,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    
 
 </head>
 
@@ -416,202 +416,193 @@
 
 </body>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-               crossorigin="anonymous">
-      </script>
-      <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script>
-
-        $(document).ready(function() {
-        $(".navBar a").each(function() {
-        if (this.href == window.location.href) {
-            $(this).addClass("active");
-        }
-    });
-});
-
-            $(document).ready(function(){
-            $(".menu-wrap a").each(function() {
-                if(this.href == window.location.href) {
-                    $(this).addClass("active");
+        document.addEventListener('DOMContentLoaded', function() {
+            // Active nav link
+            document.querySelectorAll('.navBar a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
                 }
-            })
-        });
+            });
 
-        $(document).ready(function() {
-            var $toggleButton = $('.toggle-button');
-            var $menuWrap = $('.menu-wrap');
+            // Active menu link
+            document.querySelectorAll('.menu-wrap a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
 
-            $toggleButton.on('click', function() {
-                    $(this).toggleClass('button-open');
-                    $menuWrap.toggleClass('menu-show');
+            // Toggle button
+            var toggleButton = document.querySelector('.toggle-button');
+            var menuWrap = document.querySelector('.menu-wrap');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    toggleButton.classList.toggle('button-open');
+                    menuWrap.classList.toggle('menu-show');
+                });
+            }
+
+            // Download buttons
+            document.querySelectorAll('.downloadApp').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
                 });
             });
 
-          $(".downloadApp").on('click', function(){
-            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-
-                if(mac){
-                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
-        }
-                else{
-                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
-        }
+            document.querySelectorAll('.downloadLapse').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    window.location.href = 'https://itunes.apple.com/app/id539108382';
+                });
             });
 
+            // Slideshow
+            var i = 0;
+            var x = 0;
+            var headlines = ["Step 1. Grow your specimens", "Step 2. Download software", "Step 3. Growing materials", "Step 4. Experimental set up", "Step 5. Experimental set up", "Step 6. Recording your experiment", "Step 7. Uploading videos to Plant Tracer", "Step 8. Marking points for movement capture"];
+            var mobileHeadlines = [[1, 3], [2, 5], [3, 11], [4, 15], [5, 17], [6, 21], [7, 25]];
+            var greenBubbles = ["img/Green%20Bubbles%20(1%20Full).png", "img/Green%20Bubbles%20(2%20Full).png", "img/Green%20Bubbles%20(3%20Full).png", "img/Green%20Bubbles%20(4%20Full).png", "img/Green%20Bubbles%20(5%20Full).png", "img/Green%20Bubbles%20(6%20Full).png", "img/Green%20Bubbles%20(7%20Full).png", "img/Green%20Bubbles%20(8%20Full).png"];
+            var curSlide = 1;
 
-          $(".downloadLapse").on('click', function(){
-            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+            var backBtns = document.querySelectorAll('.backBtn');
+            var nextBtns = document.querySelectorAll('.nextBtn');
+            var heading = document.querySelector('h1');
+            var greenBubblesImg = document.getElementById('greenBubblesImg');
+            var mobileHeading = document.getElementById('mobileHeading');
+            var mobileBubblesImg = document.getElementById('mobileBubblesImg');
 
-                if(mac){
-                    window.location.href = 'https://itunes.apple.com/app/id539108382';
-        }
-                else{
-                    window.location.href = 'https://itunes.apple.com/app/id539108382';
-        }
-            });
-
-var i = 0;
-var x = 0;
-
-if(i==0){
-    $(".backBtn").hide();
-    };
-
-    $(".nextBtn").on('click', function (){
-        if(window.innerWidth > 600){
-            i++;
-            if(i!=0){
-                $(".backBtn").show();
-            };
-            $("h1").text(headlines[i]);
-            plusDivs(1);
-            if(i == 7){
-                $(".nextBtn").hide();
-            }
-            $("#greenBubblesImg").attr("src",greenBubbles[i]);
-        }
-
-        if(window.innerWidth < 601){
-            i++;
-            console.log("Slide number: "+ i);
-            if(i!=0){
-                $(".backBtn").show();
-;            };
-
-            var z = mobileHeadlines[x][1];
-
-            if(i==z){
-                $("#mobileHeading").text(headlines[x+1]);
-                 $("#mobileBubblesImg").attr("src",greenBubbles[x+1]);
-                if(x!=6){
-                    x++;
-                    console.log("Headline number: "+x);
+            function slideshow(n) {
+                var slides = document.getElementsByClassName("bigSubStep");
+                if (n > slides.length) {
+                    curSlide = 1;
                 }
+                if (n < 1) {
+                    curSlide = slides.length;
+                }
+                for (var j = 0; j < slides.length; j++) {
+                    slides[j].style.display = "none";
+                }
+                slides[curSlide - 1].style.display = "flex";
 
-            }
-            plusMobile(1);
-            if(i == 27){
-                $(".nextBtn").hide();
-            }
-        }
-        });
+                var currentSlide = slides[curSlide-1];
+                var backBtn = currentSlide.querySelector('.backBtn');
+                var nextBtn = currentSlide.querySelector('.nextBtn');
 
-    $(".backBtn").on('click', function (){
-        if(window.innerWidth > 600){
-            i--;
-            if(i==0){
-                $(".backBtn").hide();
-                $(".nextBtn").show();
-            }
-            $("h1").text(headlines[i]);
-            plusDivs(-1);
-            if(i!=7){
-                $(".nextBtn").show();
-            }
-            $("#greenBubblesImg").attr("src",greenBubbles[i]);
-        }
-
-        if(window.innerWidth < 601){
-            i--;
-            if(i==0){
-                $(".backBtn").hide();
-                $(".nextBtn").show();
-                ;
-            };
-
-            if(x!=0){
-                var z = mobileHeadlines[x-1][1];
-                var headline = z-1;
-            }
-
-            if(i==headline){
-                $("#mobileHeading").text(headlines[x-1]);
-                $("#mobileBubblesImg").attr("src",greenBubbles[x-1]);
-                if(x!=1){
-                    x--;
+                if(backBtn) {
+                    if(curSlide === 1) {
+                        backBtn.style.display = 'none';
+                    } else {
+                        backBtn.style.display = 'block';
+                    }
+                }
+                if(nextBtn) {
+                    if(curSlide === slides.length) {
+                        nextBtn.style.display = 'none';
+                    } else {
+                        nextBtn.style.display = 'block';
+                    }
                 }
             }
-            plusMobile(-1);
-            if(i!=27){
-                $(".nextBtn").show();
+
+            function mobile(n) {
+                var slides = document.getElementsByClassName("mobileStep");
+                if (n > slides.length) {
+                    curSlide = 1;
+                }
+                if (n < 1) {
+                    curSlide = slides.length;
+                }
+                for (var j = 0; j < slides.length; j++) {
+                    slides[j].style.display = "none";
+                }
+                slides[curSlide - 1].style.display = "block";
+                var currentSlide = slides[curSlide-1];
+                var backBtn = currentSlide.querySelector('.backBtn');
+                var nextBtn = currentSlide.querySelector('.nextBtn');
+
+                if(backBtn) {
+                    if(curSlide === 1) {
+                        backBtn.style.display = 'none';
+                    } else {
+                        backBtn.style.display = 'block';
+                    }
+                }
+                if(nextBtn) {
+                    if(curSlide === slides.length) {
+                        nextBtn.style.display = 'none';
+                    } else {
+                        nextBtn.style.display = 'block';
+                    }
+                }
             }
-        }
 
+            function plusDivs(n) {
+                slideshow(curSlide += n);
+            }
+
+            function plusMobile(n) {
+                mobile(curSlide += n);
+            }
+
+            if (window.innerWidth > 600) {
+                slideshow(curSlide);
+            } else {
+                mobile(curSlide);
+            }
+
+            if (nextBtns) {
+                nextBtns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        if (window.innerWidth > 600) {
+                            i++;
+                            heading.textContent = headlines[i];
+                            plusDivs(1);
+                            greenBubblesImg.setAttribute("src", greenBubbles[i]);
+                        } else {
+                            i++;
+                            var z = mobileHeadlines[x] ? mobileHeadlines[x][1] : 0;
+                            if (i === z) {
+                                if(headlines[x+1]) mobileHeading.textContent = headlines[x + 1];
+                                if(greenBubbles[x+1]) mobileBubblesImg.setAttribute("src", greenBubbles[x + 1]);
+                                if (x != 6) {
+                                    x++;
+                                }
+                            }
+                            plusMobile(1);
+                        }
+                    });
+                });
+            }
+
+            if (backBtns) {
+                backBtns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        if (window.innerWidth > 600) {
+                            i--;
+                            heading.textContent = headlines[i];
+                            plusDivs(-1);
+                            greenBubblesImg.setAttribute("src", greenBubbles[i]);
+                        } else {
+                            i--;
+                            if (x != 0) {
+                                var z = mobileHeadlines[x - 1][1];
+                                var headline = z - 1;
+                                if (i === headline) {
+                                    if(headlines[x-1]) mobileHeading.textContent = headlines[x - 1];
+                                    if(greenBubbles[x-1]) mobileBubblesImg.setAttribute("src", greenBubbles[x - 1]);
+                                    if (x != 1) {
+                                        x--;
+                                    }
+                                }
+                            }
+                            plusMobile(-1);
+                        }
+                    });
+                });
+            }
         });
-
-var headlines = ["Step 1. Grow your specimens","Step 2. Download software", "Step 3. Growing materials", "Step 4. Experimental set up", "Step 5. Experimental set up", "Step 6. Recording your experiment", "Step 7. Uploading videos to Plant Tracer", "Step 8. Marking points for movement capture"];
-
-
-var mobileHeadlines = [[1,3],[2,5],[3,11],[4,15],[5,17],[6,21],[7,25]];
-
-var greenBubbles = ["img/Green%20Bubbles%20(1%20Full).png", "img/Green%20Bubbles%20(2%20Full).png", "img/Green%20Bubbles%20(3%20Full).png", "img/Green%20Bubbles%20(4%20Full).png", "img/Green%20Bubbles%20(5%20Full).png", "img/Green%20Bubbles%20(6%20Full).png", "img/Green%20Bubbles%20(7%20Full).png", "img/Green%20Bubbles%20(8%20Full).png"];
-
-var curSlide = 1;
-if(window.innerWidth>600){
-    slideshow(curSlide);
-}
-if(window.innerWidth<601){
-    mobile(curSlide);
-}
-
-function plusDivs(n) {
-    slideshow(curSlide += n);
-}
-
-function plusMobile(n) {
-    mobile(curSlide += n);
-}
-
-function mobile(n) {
-  var i;
-  var x = document.getElementsByClassName("mobileStep");
-    console.log(x.length);
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  x[curSlide-1].style.display = "block";
-}
-
-function slideshow(n) {
-    var i;
-    var x = document.getElementsByClassName("bigSubStep");
-    if (n > x.length) {
-        curSlide = 1
-    }
-    if (n < 1) {
-        curSlide = x.length
-    };
-    for (i = 0; i < x.length; i++)
-    {
-        x[i].style.display = "none";
-    }
-    x[curSlide-1].style.display = "flex";
-};
-
-
     </script>
 
 </html>

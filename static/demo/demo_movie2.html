@@ -3,7 +3,7 @@
   <head>
     <title>Demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" charset="utf8" src="./jquery.js"></script>
+    
     <script type="module" src="../movie_stepper.js"></script>
   </head>
   <style>
@@ -43,8 +43,9 @@
 
    var ms = new MovieStepper();
    await ms.load('./tracked.mp4');
-   $(' input.frame_number_field').on('input', () => {
-       var f = parseInt($('input.frame_number_field').val());
+   
+   document.querySelector('input.frame_number_field').addEventListener('input', (e) => {
+       var f = parseInt(e.target.value);
        console.log("go to frame ",f);
        const ctx = document.getElementById('canvas-id').getContext('2d');
        ms.getFrame(f).then((frame) => {

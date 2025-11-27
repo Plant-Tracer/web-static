@@ -22,7 +22,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    
 
   </head>
   <body>
@@ -193,88 +193,90 @@
 </body>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-               crossorigin="anonymous">
-      </script>
+
       <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
       <script>
-        $(document).ready(function() {
-        $(".navBar a").each(function() {
-        if (this.href == window.location.href) {
-            $(this).addClass("active");
-        }
-    });
-});
-        $(document).ready(function(){
-            $(".menu-wrap a").each(function() {
-                if(this.href == window.location.href) {
-                    $(this).addClass("active");
+        document.addEventListener('DOMContentLoaded', function() {
+            // Active nav link
+            document.querySelectorAll('.navBar a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
                 }
-            })
-        });
-
-    $(document).ready(function() {
-        var $toggleButton = $('.toggle-button');
-        var $menuWrap = $('.menu-wrap');
-
-        $toggleButton.on('click', function() {
-            $(this).toggleClass('button-open');
-            $menuWrap.toggleClass('menu-show');
-        });
-    });
-
-        $(document).ready(function (){
-          $("#downloadApple").on("click", function(){
-            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-
-            if(mac){
-             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
-     }
-          else{
-             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
-     }
-          });
-      });
-
-         jQuery(document).ready(function(){
-            jQuery('#ajaxSubmit').click(function(e){
-               e.preventDefault();
-               $.ajaxSetup({
-                  headers: {
-                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                  }
-              });
-               jQuery.ajax({
-                  url: "index",
-                  method: 'POST',
-                  data: {
-                     email: jQuery('#email').val(),
-                     password: jQuery('#password').val(),
-                     password_confirmation: jQuery('#passwordconf').val()
-                  },
-                  success: function(result){
-                    if(result.errors)
-                    {
-                      jQuery('.alert-danger').html('');
-                      jQuery.each(result.errors, function(key, value){
-                        jQuery('.alert-danger').show();
-                        jQuery('.alert-danger').append('<li>'+value+'</li>');
-                      });
-                    }
-                    else
-                    {
-                      console.warn(result);
-                      jQuery('.alert-danger').hide();
-                      $('#open').hide();
-                      window.location.href="/database";
-                    }
-                  }
-
-                });
-               });
             });
+
+            // Active menu link
+            document.querySelectorAll('.menu-wrap a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Toggle button
+            var toggleButton = document.querySelector('.toggle-button');
+            var menuWrap = document.querySelector('.menu-wrap');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    toggleButton.classList.toggle('button-open');
+                    menuWrap.classList.toggle('menu-show');
+                });
+            }
+
+            // Download button
+            var downloadApple = document.getElementById('downloadApple');
+            if (downloadApple) {
+                downloadApple.addEventListener('click', function() {
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+                });
+            }
+
+            // AJAX form submission
+            var ajaxSubmit = document.getElementById('ajaxSubmit');
+            if (ajaxSubmit) {
+                ajaxSubmit.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    var token = document.querySelector('meta[name="_token"]').getAttribute('content');
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('password').value;
+                    var passwordConf = document.getElementById('passwordconf').value;
+
+                    fetch('index', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': token,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password,
+                            password_confirmation: passwordConf
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(function(result) {
+                        var alertDanger = document.querySelector('.alert-danger');
+                        if (result.errors) {
+                            alertDanger.innerHTML = '';
+                            Object.keys(result.errors).forEach(function(key) {
+                                alertDanger.style.display = 'block';
+                                var li = document.createElement('li');
+                                li.textContent = result.errors[key];
+                                alertDanger.appendChild(li);
+                            });
+                        } else {
+                            console.warn(result);
+                            alertDanger.style.display = 'none';
+                            var open = document.getElementById('open');
+                            if (open) {
+                                open.style.display = 'none';
+                            }
+                            window.location.href = "/database";
+                        }
+                    });
+                });
+            }
+        });
       </script>
 
 </body>
