@@ -18,7 +18,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+  
 </head>
 <body>
 
@@ -142,53 +142,42 @@
   </div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-               crossorigin="anonymous">
-      </script>
+
       <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>
-
-            $(document).ready(function() {
-              $(".navBar a").each(function() {
-              if (this.href == window.location.href) {
-                  $(this).addClass("active");
-              }
-          });
-    });
-            $(document).ready(function(){
-            $(".menu-wrap a").each(function() {
-                if(this.href == window.location.href) {
-                    $(this).addClass("active");
+        document.addEventListener('DOMContentLoaded', function() {
+            // Active nav link
+            document.querySelectorAll('.navBar a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
                 }
-            })
-        });
-
-        $(document).ready(function() {
-            var $toggleButton = $('.toggle-button');
-            var $menuWrap = $('.menu-wrap');
-
-            $toggleButton.on('click', function() {
-                    $(this).toggleClass('button-open');
-                    $menuWrap.toggleClass('menu-show');
-                });
             });
 
-	    //Redirect to App store when downloadbtn is clicked
-        $(document).ready(function (){
-          $("#downloadBtn").on("click", function(){
-            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+            // Active menu link
+            document.querySelectorAll('.menu-wrap a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
 
-            if(mac){
-             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
-     }
-          else{
-             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
-     }
-          });
-      });
+            // Toggle button
+            var toggleButton = document.querySelector('.toggle-button');
+            var menuWrap = document.querySelector('.menu-wrap');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    toggleButton.classList.toggle('button-open');
+                    menuWrap.classList.toggle('menu-show');
+                });
+            }
 
-</script>
+            // Download button
+            var downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+                });
+            }
+        });
+    </script>
 </html>
