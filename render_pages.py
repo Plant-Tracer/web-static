@@ -108,7 +108,38 @@ def render_pages_to_png(
                     
                     # Take screenshot
                     page.screenshot(path=str(output_path), full_page=True)
-                    
+
+                    # Special handling for usingplanttracer.html
+                    if filename == "usingplanttracer.html":
+                        print(f"    Capturing substeps for {filename}")
+                        
+                        # Get all substep elements
+                        substeps = page.query_selector_all(".desktop .bigSubStep")
+                        num_substeps = len(substeps)
+                        
+                        # Loop through substeps and capture each state
+                        for i in range(num_substeps - 1):
+                            # Find the visible next button and click it
+                            next_button = page.locator(".desktop .bigSubStep[style*='display: flex;'] .nextBtn")
+                            
+                            try:
+                                next_button.click()
+                            except Exception as e:
+                                print(f"      WARNING: Could not find or click next button on substep {i+1}: {e}", file=sys.stderr)
+                                break
+
+                            # Wait for transition
+                            page.wait_for_timeout(500)
+                            
+                            # Define substep output path
+                            substep_filename = f"{html_file.stem}-substep-{i + 2}.png"
+                            substep_output_path = output_dir / substep_filename
+                            
+                            print(f"      Rendering substep {i + 2} -> {substep_filename}")
+                            
+                            # Take screenshot of the substep
+                            page.screenshot(path=str(substep_output_path), full_page=True)
+
                 except Exception as e:
                     print(f"    WARNING: Failed to render {filename}: {e}", file=sys.stderr)
             
