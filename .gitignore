@@ -5,3 +5,7 @@
 screenshots/
 test-screenshots/
 *-screenshots/
+
+.venv
+venv/
+venv.bak/
