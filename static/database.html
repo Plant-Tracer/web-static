@@ -71,20 +71,20 @@
 </div>
 
 <!-- Registration Modal -->
-  <div class="container">
+  <div class="pure-g">
     <form class="modal-content-newUser animate" method="post" action="index" id="form">
         <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" id="registerModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+  <div class="pure-modal" id="registerModal">
+  <div class="pure-modal-dialog">
+    <div class="pure-modal-content">
       <div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
+      <div class="pure-modal-header">
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="pure-button-close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="pure-modal-body">
         <div class="labels register">
           <p>
                 <strong>1)</strong> Download Plant Tracer app. Run an experiment and upload experiment data.<br><br>
@@ -92,13 +92,13 @@
             </p>
 
             <label for="Email"><strong>Email:</strong></label>
-            <input type="text" class="form-control" name="email" id="email">
+            <input type="text" class="pure-input-1" name="email" id="email">
 
             <label for="Password"><strong>Password:</strong></label>
-            <input type="password" class="form-control" name="password" id="password">
+            <input type="password" class="pure-input-1" name="password" id="password">
 
             <label for="Password"><strong>Confirm Password:</strong></label>
-            <input type="password" class="form-control" name="password_confirmation" id="passwordconf">
+            <input type="password" class="pure-input-1" name="password_confirmation" id="passwordconf">
 
             <input type="radio" name="download" value="yesApp"> I have downloaded the Plant Tracer App<br>
             <input type="radio" name="download" value="noApp"> I have not downloaded the Plant Tracer App
@@ -110,8 +110,8 @@
             </div>
       </div>
 
-      <div class="modal-footer" style="background-color:#f1f1f1">
-        <div id="registerBtn"><button class="btn btn-success" id="ajaxSubmit">Register</button></div>
+      <div class="pure-modal-footer" style="background-color:#f1f1f1">
+        <div id="registerBtn"><button class="pure-button pure-button-primary" id="ajaxSubmit">Register</button></div>
         </div>
 
     </div>
@@ -127,20 +127,20 @@
 
 
 <!-- Login Modal -->
-<div class="container">
+<div class="pure-g">
     <form class="modal-content-newUser animate" method="post" action="index" id="form">
         <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" id="loginModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+  <div class="pure-modal" id="loginModal">
+  <div class="pure-modal-dialog">
+    <div class="pure-modal-content">
       <div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
+      <div class="pure-modal-header">
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="pure-button-close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="pure-modal-body">
         <div class="labels login">
 
             <div class="loginLabel">
@@ -149,21 +149,21 @@
 
             <div class="loginLabel">
               <label for="Email"><strong>Email:</strong></label>
-              <input type="text" class="form-control" name="email" id="email">
+              <input type="text" class="pure-input-1" name="email" id="email">
             </div>
 
             <div class="loginLabel">
               <label for="Password"><strong>Password:</strong></label>
-              <input type="password" class="form-control" name="password" id="password">
+              <input type="password" class="pure-input-1" name="password" id="password">
             </div>
 
             <div class="loginLabel loginBtn">
-              <button type="submit" class="btn btn-success">Login</button>
+              <button type="submit" class="pure-button pure-button-primary">Login</button>
             </div>
 
         </div>
       </div>
-      <div class="modal-footer" style="background-color:#f1f1f1">
+      <div class="pure-modal-footer" style="background-color:#f1f1f1">
         <a href="forgotpassword.html">Forgot password?</a>
         </div>
     </div>
@@ -190,6 +190,116 @@
     </div>
     <img id="nsf" src="img/nsf.png">
 </div>
-
 </body>
 </html>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Active nav link
+            document.querySelectorAll('.navBar a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Active menu link
+            document.querySelectorAll('.menu-wrap a').forEach(function(link) {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Toggle button
+            var toggleButton = document.querySelector('.toggle-button');
+            var menuWrap = document.querySelector('.menu-wrap');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    toggleButton.classList.toggle('button-open');
+                    menuWrap.classList.toggle('menu-show');
+                });
+            }
+
+            // Download button
+            var downloadApple = document.getElementById('downloadApple');
+            if (downloadApple) {
+                downloadApple.addEventListener('click', function() {
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+                });
+            }
+
+            // AJAX form submission
+            var ajaxSubmit = document.getElementById('ajaxSubmit');
+            if (ajaxSubmit) {
+                ajaxSubmit.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    var token = document.querySelector('meta[name="_token"]').getAttribute('content');
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('password').value;
+                    var passwordConf = document.getElementById('passwordconf').value;
+
+                    fetch('index', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': token,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password,
+                            password_confirmation: passwordConf
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(function(result) {
+                        var alertDanger = document.querySelector('.alert-danger');
+                        if (result.errors) {
+                            alertDanger.innerHTML = '';
+                            Object.keys(result.errors).forEach(function(key) {
+                                alertDanger.style.display = 'block';
+                                var li = document.createElement('li');
+                                li.textContent = result.errors[key];
+                                alertDanger.appendChild(li);
+                            });
+                        } else {
+                            console.warn(result);
+                            alertDanger.style.display = 'none';
+                            var open = document.getElementById('open');
+                            if (open) {
+                                open.style.display = 'none';
+                            }
+                            window.location.href = "/database";
+                        }
+                    });
+                });
+            }
+
+            // Modal functionality
+            document.querySelectorAll('[data-toggle="modal"]').forEach(function(trigger) {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = this.getAttribute('data-target');
+                    var modal = document.querySelector(target);
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.pure-modal .pure-button-close').forEach(function(closeButton) {
+                closeButton.addEventListener('click', function() {
+                    var modal = this.closest('.pure-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                document.querySelectorAll('.pure-modal').forEach(function(modal) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+        });
+      </script>

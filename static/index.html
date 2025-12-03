@@ -75,20 +75,20 @@
 </div>
 
 <!-- Registration Modal -->
-  <div class="container">
+  <div class="pure-g">
     <form class="modal-content-newUser animate" method="post" action="index" id="form">
         <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" id="registerModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+  <div class="pure-modal" id="registerModal">
+  <div class="pure-modal-dialog">
+    <div class="pure-modal-content">
       <div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
+      <div class="pure-modal-header">
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="pure-button-close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="pure-modal-body">
         <div class="labels register">
           <p>
                 <strong>1)</strong> Download Plant Tracer app. Run an experiment and upload experiment data.<br><br>
@@ -96,13 +96,13 @@
             </p>
 
             <label for="Email"><strong>Email:</strong></label>
-            <input type="text" class="form-control" name="email" id="email">
+            <input type="text" class="pure-input-1" name="email" id="email">
 
             <label for="Password"><strong>Password:</strong></label>
-            <input type="password" class="form-control" name="password" id="password">
+            <input type="password" class="pure-input-1" name="password" id="password">
 
             <label for="Password"><strong>Confirm Password:</strong></label>
-            <input type="password" class="form-control" name="password_confirmation" id="passwordconf">
+            <input type="password" class="pure-input-1" name="password_confirmation" id="passwordconf">
 
             <input type="radio" name="download" value="yesApp"> I have downloaded the Plant Tracer App<br>
             <input type="radio" name="download" value="noApp"> I have not downloaded the Plant Tracer App
@@ -114,8 +114,8 @@
             </div>
       </div>
 
-      <div class="modal-footer" style="background-color:#f1f1f1">
-        <div id="registerBtn"><button class="btn btn-success" id="ajaxSubmit">Register</button></div>
+      <div class="pure-modal-footer" style="background-color:#f1f1f1">
+        <div id="registerBtn"><button class="pure-button pure-button-primary" id="ajaxSubmit">Register</button></div>
         </div>
 
     </div>
@@ -125,20 +125,20 @@
 </div>
 
 <!-- Login Modal -->
-<div class="container">
+<div class="pure-g">
     <form class="modal-content-newUser animate" method="post" action="index" id="form">
         <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" id="loginModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+  <div class="pure-modal" id="loginModal">
+  <div class="pure-modal-dialog">
+    <div class="pure-modal-content">
       <div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
+      <div class="pure-modal-header">
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="pure-button-close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="pure-modal-body">
         <div class="labels login">
 
             <div class="loginLabel">
@@ -147,21 +147,21 @@
 
             <div class="loginLabel">
               <label for="Email"><strong>Email:</strong></label>
-              <input type="text" class="form-control" name="email" id="email">
+              <input type="text" class="pure-input-1" name="email" id="email">
             </div>
 
             <div class="loginLabel">
               <label for="Password"><strong>Password:</strong></label>
-              <input type="password" class="form-control" name="password" id="password">
+              <input type="password" class="pure-input-1" name="password" id="password">
             </div>
 
             <div class="loginLabel loginBtn">
-              <button type="submit" class="btn btn-success">Login</button>
+              <button type="submit" class="pure-button pure-button-primary">Login</button>
             </div>
 
         </div>
       </div>
-      <div class="modal-footer" style="background-color:#f1f1f1">
+      <div class="pure-modal-footer" style="background-color:#f1f1f1">
         <a href="forgotpassword.html">Forgot password?</a>
         </div>
     </div>
@@ -267,6 +267,35 @@
                     });
                 });
             }
+
+            // Modal functionality
+            document.querySelectorAll('[data-toggle="modal"]').forEach(function(trigger) {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = this.getAttribute('data-target');
+                    var modal = document.querySelector(target);
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.pure-modal .pure-button-close').forEach(function(closeButton) {
+                closeButton.addEventListener('click', function() {
+                    var modal = this.closest('.pure-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                document.querySelectorAll('.pure-modal').forEach(function(modal) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
         });
       </script>
 
