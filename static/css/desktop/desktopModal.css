@@ -104,3 +104,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.modal-content-newUser {
+    display: none !important;
+}
