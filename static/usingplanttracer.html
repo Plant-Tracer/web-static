@@ -20,13 +20,12 @@
     <link rel="stylesheet" type = "text/css" href="css/mobile/mobileUsingPT.css">
     <link rel="stylesheet" type = "text/css" href="css/desktop/desktopNavBar.css">
     <link rel="stylesheet" type = "text/css" href="css/desktop/desktopUsingPT.css">
+    <link rel="stylesheet" type = "text/css" href="css/desktop/desktopModal.css">
 
     <link rel="icon"       type="image/x-icon" href="favicon.png" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
 </head>
 
 <body>
@@ -74,49 +73,47 @@
     </div>
 </div>
         <!-- Login Modal -->
-<div class="container">
-    <form class="modal-content-newUser animate" method="post" action="index" id="form">
+<div class="pure-g">
+    <form class="pure-modal modal-content-newUser animate" method="post" action="index" id="loginModal">
         <input type="hidden" name="_token" value="n6bp2lTR9TJIqRhS6reT2urpAR67BmkktiaLDkXV">  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" id="loginModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
+      <div class="pure-modal-dialog">
+        <div class="pure-modal-content">
+          <div class="pure-form-message pure-form-message-danger" style="display:none"></div>
+          <div class="pure-modal-header">
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="labels login">
+              <button type="button" class="pure-button-close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="pure-modal-body">
+            <div class="labels login">
 
-            <div class="loginLabel">
-              <img class="avatar" src="img/leaf.png">
+                <div class="loginLabel">
+                  <img class="avatar" src="img/leaf.png">
+                </div>
+
+                <div class="loginLabel">
+                  <label for="Email"><strong>Email:</strong></label>
+                  <input type="text" class="pure-input-1" name="email" id="email">
+                </div>
+
+                <div class="loginLabel">
+                  <label for="Password"><strong>Password:</strong></label>
+                  <input type="password" class="pure-input-1" name="password" id="password">
+                </div>
+
+                <div class="loginLabel loginBtn">
+                  <button type="submit" class="pure-button pure-button-primary">Login</button>
+                </div>
+
             </div>
-
-            <div class="loginLabel">
-              <label for="Email"><strong>Email:</strong></label>
-              <input type="text" class="form-control" name="email" id="email">
+          </div>
+          <div class="pure-modal-footer" style="background-color:#f1f1f1">
+            <a href="forgotpassword.html">Forgot password?</a>
             </div>
-
-            <div class="loginLabel">
-              <label for="Password"><strong>Password:</strong></label>
-              <input type="password" class="form-control" name="password" id="password">
-            </div>
-
-            <div class="loginLabel loginBtn">
-              <button type="submit" class="btn btn-success">Login</button>
-            </div>
-
         </div>
       </div>
-      <div class="modal-footer" style="background-color:#f1f1f1">
-        <a href="forgotpassword.html">Forgot password?</a>
-        </div>
-    </div>
-  </div>
-</div>
-  </form>
+    </form>
 </div>
 
 <div class = "desktop">
@@ -420,7 +417,7 @@
 
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Active nav link
@@ -569,6 +566,35 @@
                     }
                     plusMobile(-1);
                 }
+            });
+
+            // Modal functionality
+            document.querySelectorAll('[data-toggle="modal"]').forEach(function(trigger) {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = this.getAttribute('data-target');
+                    var modal = document.querySelector(target);
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.pure-modal .pure-button-close').forEach(function(closeButton) {
+                closeButton.addEventListener('click', function() {
+                    var modal = this.closest('.pure-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                document.querySelectorAll('.pure-modal').forEach(function(modal) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
