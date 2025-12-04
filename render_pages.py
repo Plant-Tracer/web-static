@@ -88,60 +88,109 @@ def render_pages_to_png(
             # Launch browser in headless mode
             browser = p.chromium.launch(headless=True)
             
-            # Create a new page with desktop viewport
-            page = browser.new_page(viewport={"width": 1280, "height": 720})
-            
-            for html_file in html_files:
-                filename = html_file.name
-                output_filename = filename.replace(".html", ".png")
-                output_path = output_dir / output_filename
-                
-                url = f"http://localhost:{port}/{filename}"
-                print(f"  Rendering {filename} -> {output_filename}")
-                
-                try:
-                    # Navigate to the page
-                    page.goto(url, wait_until="networkidle", timeout=30000)
-                    
-                    # Wait a bit for any animations or dynamic content
-                    page.wait_for_timeout(500)
-                    
-                    # Take screenshot
-                    page.screenshot(path=str(output_path), full_page=True)
+            # Define viewports for desktop and mobile
+            viewports = [
+                {"name": "desktop", "width": 1280, "height": 720},
+                {"name": "mobile", "width": 590, "height": 720},
+            ]
 
-                    # Special handling for usingplanttracer.html
-                    if filename == "usingplanttracer.html":
-                        print(f"    Capturing substeps for {filename}")
-                        
-                        # Get all substep elements
-                        substeps = page.query_selector_all(".desktop .bigSubStep")
-                        num_substeps = len(substeps)
-                        
-                        # Loop through substeps and capture each state
-                        for i in range(num_substeps - 1):
-                            # Find the visible next button and click it
-                            next_button = page.locator(".desktop .bigSubStep[style*='display: flex;'] .nextBtn")
-                            
-                            try:
-                                next_button.click()
-                            except Exception as e:
-                                print(f"      WARNING: Could not find or click next button on substep {i+1}: {e}", file=sys.stderr)
-                                break
+            for viewport in viewports:
+                viewport_name = viewport["name"]
+                viewport_width = viewport["width"]
+                viewport_height = viewport["height"]
 
-                            # Wait for transition
-                            page.wait_for_timeout(500)
-                            
-                            # Define substep output path
-                            substep_filename = f"{html_file.stem}-substep-{i + 2}.png"
-                            substep_output_path = output_dir / substep_filename
-                            
-                            print(f"      Rendering substep {i + 2} -> {substep_filename}")
-                            
-                            # Take screenshot of the substep
-                            page.screenshot(path=str(substep_output_path), full_page=True)
+                print(f"\nRendering pages for {viewport_name} viewport ({viewport_width}x{viewport_height})")
 
-                except Exception as e:
-                    print(f"    WARNING: Failed to render {filename}: {e}", file=sys.stderr)
+                # Create a new page with the specified viewport
+                page = browser.new_page(viewport={"width": viewport_width, "height": viewport_height})
+
+                for html_file in html_files:
+                    filename = html_file.name
+                    stem = html_file.stem
+                    output_filename = f"{stem}-{viewport_name}.png"
+                    output_path = output_dir / output_filename
+
+                    url = f"http://localhost:{port}/{filename}"
+                    print(f"  Rendering {filename} -> {output_filename}")
+
+                    try:
+                        # Navigate to the page
+                        page.goto(url, wait_until="networkidle", timeout=30000)
+
+                        # Wait a bit for any animations or dynamic content
+                        page.wait_for_timeout(500)
+
+                        # Take screenshot
+                        page.screenshot(path=str(output_path), full_page=True)
+
+                        # Special handling for usingplanttracer.html on desktop
+                        if viewport_name == "desktop" and filename == "usingplanttracer.html":
+                            print(f"    Capturing substeps for {filename}")
+
+                            # Get all substep elements
+                            substeps = page.query_selector_all(".desktop .bigSubStep")
+                            num_substeps = len(substeps)
+
+                            # Loop through substeps and capture each state
+                            for i in range(num_substeps - 1):
+                                # Find the visible next button and click it
+                                next_button = page.locator(".desktop .bigSubStep[style*='display: flex;'] .nextBtn")
+
+                                try:
+                                    next_button.click()
+                                except Exception as e:
+                                    print(f"      WARNING: Could not find or click next button on substep {i+1}: {e}", file=sys.stderr)
+                                    break
+
+                                # Wait for transition
+                                page.wait_for_timeout(500)
+
+                                # Define substep output path
+                                substep_filename = f"{html_file.stem}-{viewport_name}-substep-{i + 2}.png"
+                                substep_output_path = output_dir / substep_filename
+
+                                print(f"      Rendering substep {i + 2} -> {substep_filename}")
+
+                                # Take screenshot of the substep
+                                page.screenshot(path=str(substep_output_path), full_page=True)
+
+                        # Special handling for usingplanttracer.html on mobile
+                        elif viewport_name == "mobile" and filename == "usingplanttracer.html":
+                            print(f"    Capturing mobile substeps for {filename}")
+
+                            # Get all mobile substep elements
+                            substeps = page.query_selector_all(".Mobile .mobileStep")
+                            num_substeps = len(substeps)
+
+                            # Loop through substeps and capture each state
+                            for i in range(num_substeps - 1):
+                                # Find the mobile next button and click it
+                                next_button = page.locator(".Mobile .buttons .nextBtn")
+
+                                try:
+                                    next_button.click()
+                                except Exception as e:
+                                    print(f"      WARNING: Could not find or click mobile next button on substep {i+1}: {e}", file=sys.stderr)
+                                    break
+
+                                # Wait for transition
+                                page.wait_for_timeout(500)
+
+                                # Define substep output path
+                                substep_filename = f"{html_file.stem}-{viewport_name}-substep-{i + 2}.png"
+                                substep_output_path = output_dir / substep_filename
+
+                                print(f"      Rendering mobile substep {i + 2} -> {substep_filename}")
+
+                                # Take screenshot of the substep
+                                page.screenshot(path=str(substep_output_path), full_page=True)
+
+
+                    except Exception as e:
+                        print(f"    WARNING: Failed to render {filename}: {e}", file=sys.stderr)
+
+                page.close()
+
             
             browser.close()
     
