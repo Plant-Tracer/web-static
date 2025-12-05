@@ -146,7 +146,7 @@ def render_pages_to_png(
                                 page.wait_for_timeout(500)
 
                                 # Define substep output path
-                                substep_filename = f"{html_file.stem}-{viewport_name}-substep-{i + 2}.png"
+                                substep_filename = f"{html_file.stem}-{viewport_name}-substep-{i + 2:03d}.png"
                                 substep_output_path = output_dir / substep_filename
 
                                 print(f"      Rendering substep {i + 2} -> {substep_filename}")
@@ -177,7 +177,7 @@ def render_pages_to_png(
                                 page.wait_for_timeout(500)
 
                                 # Define substep output path
-                                substep_filename = f"{html_file.stem}-{viewport_name}-substep-{i + 2}.png"
+                                substep_filename = f"{html_file.stem}-{viewport_name}-substep-{i + 2:03d}.png"
                                 substep_output_path = output_dir / substep_filename
 
                                 print(f"      Rendering mobile substep {i + 2} -> {substep_filename}")
