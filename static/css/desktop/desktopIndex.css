@@ -2,6 +2,16 @@
     
 /* CSS for index.html */
 
+.instruction {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.1em !important;
+    line-height: 1.3 !important;
+    margin-top: 2% !important;
+    margin-bottom: 2% !important;
+    color: #606061 !important;
+    text-align: left;
+}
+
 #homepage{
     position: relative;
     display: flex;
@@ -17,7 +27,7 @@
 
     #nsf{
         width: 6%;
-        height: 12%;
+        height: auto;
         position: fixed;
         bottom: 10px;
         right: 20px;
@@ -31,7 +41,8 @@
     width: 50%;
     height: 100%;
     margin-top: 3%;
-    margin-left: 45%;
+    margin-left: 50%;
+    margin-right: 5%
 }
     
     #homeLogo {
