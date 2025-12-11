@@ -106,6 +106,11 @@ def render_pages_to_png(
 
                 for html_file in html_files:
                     filename = html_file.name
+                    
+                    if filename == "usingplanttracerwebapp.html":
+                        # Skip the webapp specific page for this rendering (for now)
+                        continue
+
                     stem = html_file.stem
                     output_filename = f"{stem}-{viewport_name}.png"
                     output_path = output_dir / output_filename

@@ -55,6 +55,13 @@
         text-align: center !important;
     }
 
+    .bigSubStep li {
+        font-family: 'Outfit', sans-serif !important;
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 1.5em !important;
+
+    }
     .downloadApp:hover,
     .downloadApp:focus{
         cursor: pointer;
