@@ -128,8 +128,8 @@ def render_pages_to_png(
                         # Take screenshot
                         page.screenshot(path=str(output_path), full_page=True)
 
-                        # Special handling for usingplanttracer.html on desktop
-                        if viewport_name == "desktop" and filename == "usingplanttracer.html":
+                        # Special handling for usingplanttracerios.html on desktop
+                        if viewport_name == "desktop" and filename == "usingplanttracerios.html":
                             print(f"    Capturing substeps for {filename}")
 
                             # Get all substep elements
@@ -159,8 +159,8 @@ def render_pages_to_png(
                                 # Take screenshot of the substep
                                 page.screenshot(path=str(substep_output_path), full_page=True)
 
-                        # Special handling for usingplanttracer.html on mobile
-                        elif viewport_name == "mobile" and filename == "usingplanttracer.html":
+                        # Special handling for usingplanttracerios.html on mobile
+                        elif viewport_name == "mobile" and filename == "usingplanttracerios.html":
                             print(f"    Capturing mobile substeps for {filename}")
 
                             # Get all mobile substep elements
