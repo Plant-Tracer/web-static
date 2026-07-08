@@ -26,7 +26,7 @@ cd static
 python3 ../pyserver.py
 ```
 
-The site will be available at `http://localhost:9001`
+The site will be available at `http://localhost:9101`
 
 ### Generate Screenshots
 
